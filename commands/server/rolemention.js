@@ -1,0 +1,2 @@
+export default { name: "rolemention", aliases: ["rm2"], description: "Bascule la mentionnabilité d'un rôle", usage: "rolemention @role", category: "server", cooldown: 3,
+  async execute(client, message) { const r = message.mentions.roles.first(); if (!r) return message.channel.send("❌ Mentionne un rôle."); await r.setMentionable(!r.mentionable).then(() => message.channel.send(`> mentionnable : ${r.mentionable}`)).catch((e) => message.channel.send("❌ " + e.message)); } };

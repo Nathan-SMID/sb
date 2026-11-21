@@ -1,0 +1,2 @@
+export default { name: "team", aliases: ["teams"], description: "Répartit les mentions en deux équipes", usage: "team @a @b @c @d", category: "fun", cooldown: 3,
+  async execute(client, message) { const u = [...message.mentions.users.values()]; if (u.length < 2) return message.channel.send("❌ Mentionne au moins 2 personnes."); const s = u.sort(() => Math.random() - 0.5); const h = Math.ceil(s.length / 2); await message.channel.send(`🔵 ${s.slice(0, h).join(", ")}\n🔴 ${s.slice(h).join(", ")}`); } };

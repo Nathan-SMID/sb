@@ -1,0 +1,2 @@
+export default { name: "palette", aliases: ["pal"], description: "Palette de 5 couleurs", usage: "palette", category: "media", cooldown: 2,
+  async execute(client, message) { const l = Array.from({ length: 5 }, () => "#" + Math.floor(Math.random() * 0xffffff).toString(16).padStart(6, "0")); await message.channel.send(`> 🎨 ${l.join(" · ")}\nhttps://singlecolorimage.com/get/${l[0].slice(1)}/400x80`); } };

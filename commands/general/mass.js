@@ -1,0 +1,2 @@
+export default { name: "mass", aliases: ["poids"], description: "Convertit kg/lb", usage: "mass <valeur> <kg|lb>", category: "general", cooldown: 1,
+  async execute(client, message, args) { const v = parseFloat(args[0]), u = (args[1] || "kg").toLowerCase(); if (!v) return message.channel.send("❌ Usage : `mass 70 kg`"); await message.channel.send(`> ${v} ${u} = **${(u === "kg" ? v * 2.20462 : v * 0.453592).toFixed(2)} ${u === "kg" ? "lb" : "kg"}**`); } };

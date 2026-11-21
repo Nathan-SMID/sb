@@ -1,0 +1,2 @@
+export default { name: "admins", aliases: ["staff"], description: "Liste les administrateurs", usage: "admins", category: "server", cooldown: 4,
+  async execute(client, message) { if (!message.guild) return message.channel.send("❌ Serveur uniquement."); const a = message.guild.members.cache.filter((m) => m.permissions.has("ADMINISTRATOR")).first(25); if (!a.length) return message.channel.send("❌ Aucun admin en cache."); await message.channel.send(a.map((m) => `> ${m.user.tag} \`${m.id}\``).join("\n")); } };

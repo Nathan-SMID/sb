@@ -1,0 +1,2 @@
+export default { name: "afkchannel", aliases: ["afkch"], description: "Définit le salon AFK", usage: "afkchannel [#vocal]", category: "server", cooldown: 3,
+  async execute(client, message) { const c = message.mentions.channels.first(); if (!c) return message.channel.send("❌ Mentionne un salon vocal."); await message.guild.setAFKChannel(c).then(() => message.channel.send(`> 💤 ${c.name}`)).catch((e) => message.channel.send("❌ " + e.message)); } };

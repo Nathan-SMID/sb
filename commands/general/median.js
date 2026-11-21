@@ -1,0 +1,2 @@
+export default { name: "median", aliases: ["mediane"], description: "Médiane", usage: "median <n...>", category: "general", cooldown: 1,
+  async execute(client, message, args) { const n = args.map(Number).filter((x) => !isNaN(x)).sort((a, b) => a - b); if (!n.length) return message.channel.send("❌ Nombres ?"); const m = Math.floor(n.length / 2); await message.channel.send(`> ${n.length % 2 ? n[m] : (n[m - 1] + n[m]) / 2}`); } };

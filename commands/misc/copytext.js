@@ -1,0 +1,2 @@
+export default { name: "copytext", aliases: ["ct"], description: "Renvoie le texte du message répondu", usage: "copytext", category: "misc", cooldown: 1,
+  async execute(client, message) { if (!message.reference?.messageId) return message.channel.send("❌ Réponds à un message."); const m = await message.channel.messages.fetch(message.reference.messageId); await message.channel.send(m.content.slice(0, 1900) || "> [vide]"); } };

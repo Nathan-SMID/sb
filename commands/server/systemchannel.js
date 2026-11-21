@@ -1,0 +1,2 @@
+export default { name: "systemchannel", aliases: ["sysch"], description: "Définit le salon système", usage: "systemchannel [#salon]", category: "server", cooldown: 3,
+  async execute(client, message) { const c = message.mentions.channels.first(); if (!c) return message.channel.send("❌ Mentionne un salon."); await message.guild.setSystemChannel(c).then(() => message.channel.send(`> ⚙️ ${c.name}`)).catch((e) => message.channel.send("❌ " + e.message)); } };

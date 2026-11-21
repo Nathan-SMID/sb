@@ -1,0 +1,2 @@
+export default { name: "unpin", aliases: ["desepingle"], description: "Désépingle le message répondu", usage: "unpin", category: "misc", cooldown: 2,
+  async execute(client, message) { if (!message.reference?.messageId) return message.channel.send("❌ Réponds à un message."); const m = await message.channel.messages.fetch(message.reference.messageId); await m.unpin().catch((e) => message.channel.send("❌ " + e.message)); await message.channel.send("> 📍 désépinglé"); } };

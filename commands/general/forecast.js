@@ -1,0 +1,3 @@
+import axios from "axios";
+export default { name: "forecast", aliases: ["previsions"], description: "Prévisions sur 3 jours", usage: "forecast <ville>", category: "general", cooldown: 6,
+  async execute(client, message, args) { const c = args.join(" "); if (!c) return message.channel.send("❌ Ville ?"); try { const r = await axios.get(`https://wttr.in/${encodeURIComponent(c)}?format=j1`, { timeout: 15000 }); const d = typeof r.data === "string" ? JSON.parse(r.data) : r.data; await message.channel.send(d.weather.map((w) => `> ${w.date} : ${w.mintempC}→${w.maxtempC}°C`).join("\n")); } catch { await message.channel.send("❌ Indisponible."); } } };

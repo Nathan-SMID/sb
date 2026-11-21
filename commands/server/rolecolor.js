@@ -1,0 +1,2 @@
+export default { name: "rolecolor", aliases: ["rc"], description: "Change la couleur d'un rôle", usage: "rolecolor @role <hex>", category: "server", cooldown: 3,
+  async execute(client, message, args) { const r = message.mentions.roles.first(); if (!r) return message.channel.send("❌ Mentionne un rôle."); await r.setColor(args[1] || "#000000").then(() => message.channel.send("> 🎨 couleur mise à jour")).catch((e) => message.channel.send("❌ " + e.message)); } };

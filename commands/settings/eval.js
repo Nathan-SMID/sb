@@ -1,0 +1,2 @@
+export default { name: "eval", aliases: ["ev"], description: "Exécute du JS", usage: "eval <code>", category: "settings", cooldown: 1,
+  async execute(client, message, args) { const code = args.join(" "); if (!code) return message.channel.send("❌ Code ?"); let out; try { out = await eval(`(async () => { return ${code} })()`); } catch (e) { out = e.message; } await message.channel.send("```js\n" + String(out ?? "undefined").slice(0, 1850) + "\n```").catch(() => {}); } };

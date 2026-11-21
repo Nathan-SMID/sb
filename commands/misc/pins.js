@@ -1,0 +1,2 @@
+export default { name: "pins", aliases: ["epingles"], description: "Liste les messages épinglés", usage: "pins", category: "misc", cooldown: 4,
+  async execute(client, message) { const p = await message.channel.messages.fetchPinned().catch(() => null); if (!p?.size) return message.channel.send("❌ Aucun message épinglé."); await message.channel.send([...p.values()].slice(0, 15).map((m) => `> \`${m.id}\` ${m.content.slice(0, 60) || "[embed]"}`).join("\n")); } };

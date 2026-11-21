@@ -1,0 +1,2 @@
+export default { name: "moon", aliases: ["lune"], description: "Phase de la lune", usage: "moon", category: "general", cooldown: 3,
+  async execute(client, message) { const d = new Date(); const p = ((d - new Date(d.getFullYear(), 0, 1)) / 86400000) % 29.53; const i = Math.floor(p / 3.69); await message.channel.send(`> 🌙 phase ${i + 1}/8 (${p < 1 ? "nouvelle" : p > 14 && p < 16 ? "pleine" : "intermédiaire"})`); } };

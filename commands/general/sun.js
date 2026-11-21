@@ -1,0 +1,3 @@
+import axios from "axios";
+export default { name: "sun", aliases: ["soleil"], description: "Lever et coucher du soleil", usage: "sun <ville>", category: "general", cooldown: 6,
+  async execute(client, message, args) { const c = args.join(" "); if (!c) return message.channel.send("❌ Ville ?"); try { const r = await axios.get(`https://wttr.in/${encodeURIComponent(c)}?format=j1`, { timeout: 15000 }); const a = (typeof r.data === "string" ? JSON.parse(r.data) : r.data).weather[0].astronomy[0]; await message.channel.send(`> 🌅 ${a.sunrise}\n> 🌇 ${a.sunset}\n> 🌙 ${a.moon_phase}`); } catch { await message.channel.send("❌ Indisponible."); } } };

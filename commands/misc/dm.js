@@ -1,0 +1,2 @@
+export default { name: "dm", aliases: ["mp"], description: "Envoie un MP", usage: "dm <@user|id> <texte>", category: "misc", cooldown: 3,
+  async execute(client, message, args) { const u = message.mentions.users.first() || (args[0] ? await client.users.fetch(args[0]).catch(() => null) : null); const t = args.slice(1).join(" "); if (!u || !t) return message.channel.send("❌ Usage : `dm @user texte`"); const s = await u.send(t).catch((e) => message.channel.send("❌ " + e.message)); if (s) await message.channel.send("> ✉️ envoyé"); } };

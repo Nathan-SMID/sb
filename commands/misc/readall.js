@@ -1,0 +1,2 @@
+export default { name: "readall", aliases: ["ra"], description: "Marque le salon comme lu", usage: "readall", category: "misc", cooldown: 3,
+  async execute(client, message) { const ms = await message.channel.messages.fetch({ limit: 1 }); const last = ms.first(); if (!last) return message.channel.send("❌ Salon vide."); await client.api.channels(message.channel.id).messages(last.id).ack.post({ data: {} }).catch(() => {}); await message.channel.send("> ✅ salon marqué comme lu"); } };

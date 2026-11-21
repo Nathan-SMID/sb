@@ -1,0 +1,2 @@
+export default { name: "pin", aliases: ["epingle"], description: "Épingle le message répondu", usage: "pin", category: "misc", cooldown: 2,
+  async execute(client, message) { if (!message.reference?.messageId) return message.channel.send("❌ Réponds à un message."); const m = await message.channel.messages.fetch(message.reference.messageId); await m.pin().catch((e) => message.channel.send("❌ " + e.message)); await message.channel.send("> 📌 épinglé"); } };

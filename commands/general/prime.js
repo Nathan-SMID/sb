@@ -1,0 +1,2 @@
+export default { name: "prime", aliases: ["premier"], description: "Test de primalité", usage: "prime <n>", category: "general", cooldown: 1,
+  async execute(client, message, args) { const n = parseInt(args[0], 10); if (!n) return message.channel.send("❌ Nombre ?"); if (n < 2) return message.channel.send("> non premier"); for (let i = 2; i * i <= n; i++) if (n % i === 0) return message.channel.send(`> non premier (divisible par ${i})`); await message.channel.send("> **premier**"); } };

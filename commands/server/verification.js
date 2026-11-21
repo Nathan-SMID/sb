@@ -1,0 +1,2 @@
+export default { name: "verification", aliases: ["verif"], description: "Définit le niveau de vérification", usage: "verification <0-4>", category: "server", cooldown: 3,
+  async execute(client, message, args) { const n = parseInt(args[0], 10); if (isNaN(n) || n < 0 || n > 4) return message.channel.send("❌ Niveau 0 à 4."); await message.guild.setVerificationLevel(n).then(() => message.channel.send(`> 🛡️ niveau ${n}`)).catch((e) => message.channel.send("❌ " + e.message)); } };

@@ -1,0 +1,3 @@
+const Q = [["Capitale de l'Australie ?", "Canberra"], ["Combien de cordes a une guitare ?", "6"], ["Quel est le plus grand océan ?", "Pacifique"], ["En quelle année l'homme a marché sur la Lune ?", "1969"], ["Combien de joueurs dans une équipe de foot ?", "11"], ["Quel métal est liquide à température ambiante ?", "Mercure"], ["Capitale du Canada ?", "Ottawa"], ["Combien de continents ?", "7"]];
+export default { name: "trivia", aliases: ["quiz"], description: "Question de culture générale", usage: "trivia", category: "fun", cooldown: 3,
+  async execute(client, message) { const [q, a] = Q[Math.floor(Math.random() * Q.length)]; await message.channel.send(`❓ **${q}**\n||${a}||`); } };

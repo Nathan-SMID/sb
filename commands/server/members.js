@@ -1,0 +1,2 @@
+export default { name: "members", aliases: ["membres"], description: "Compte les membres", usage: "members", category: "server", cooldown: 4,
+  async execute(client, message) { if (!message.guild) return message.channel.send("❌ Serveur uniquement."); const c = message.guild.memberCount; await message.channel.send(`> 👥 ${c} membres · ${message.guild.members.cache.filter((m) => m.user.bot).size} bots en cache`); } };

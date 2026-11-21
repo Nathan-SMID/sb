@@ -1,0 +1,2 @@
+export default { name: "threads", aliases: ["fils"], description: "Liste les fils actifs", usage: "threads", category: "misc", cooldown: 4,
+  async execute(client, message) { if (!message.guild) return message.channel.send("❌ Serveur uniquement."); const t = message.guild.channels.cache.filter((c) => c.isThread()).first(20); if (!t.length) return message.channel.send("❌ Aucun fil actif."); await message.channel.send(t.map((c) => `> ${c.name} \`${c.id}\``).join("\n")); } };

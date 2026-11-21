@@ -1,0 +1,2 @@
+export default { name: "speed", aliases: ["vitesse"], description: "Convertit km/h et mph", usage: "speed <valeur> <kmh|mph>", category: "general", cooldown: 1,
+  async execute(client, message, args) { const v = parseFloat(args[0]), u = (args[1] || "kmh").toLowerCase(); if (!v) return message.channel.send("❌ Usage : `speed 100 kmh`"); await message.channel.send(`> ${v} ${u} = **${(u === "kmh" ? v * 0.621371 : v * 1.60934).toFixed(2)} ${u === "kmh" ? "mph" : "kmh"}**`); } };

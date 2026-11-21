@@ -1,0 +1,2 @@
+export default { name: "color", aliases: ["couleur"], description: "Couleur aléatoire", usage: "color", category: "media", cooldown: 2,
+  async execute(client, message) { const h = Math.floor(Math.random() * 0xffffff).toString(16).padStart(6, "0"); await message.channel.send(`> 🎨 #${h}\n> rgb(${parseInt(h.slice(0, 2), 16)}, ${parseInt(h.slice(2, 4), 16)}, ${parseInt(h.slice(4, 6), 16)})\nhttps://singlecolorimage.com/get/${h}/200x200`); } };

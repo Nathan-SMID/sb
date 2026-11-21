@@ -1,0 +1,2 @@
+export default { name: "discount", aliases: ["remise"], description: "Prix après remise", usage: "discount <prix> <pct>", category: "general", cooldown: 1,
+  async execute(client, message, args) { const p = parseFloat(args[0]), d = parseFloat(args[1]); if (!p || !d) return message.channel.send("❌ Usage : `discount 80 20`"); await message.channel.send(`> nouveau prix : **${(p * (1 - d / 100)).toFixed(2)}**`); } };

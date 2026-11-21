@@ -1,0 +1,2 @@
+export default { name: "pchange", aliases: ["variation"], description: "Variation en %", usage: "pchange <avant> <après>", category: "general", cooldown: 1,
+  async execute(client, message, args) { const a = parseFloat(args[0]), b = parseFloat(args[1]); if (!a || isNaN(b)) return message.channel.send("❌ Usage : `pchange 100 120`"); await message.channel.send(`> **${(((b - a) / a) * 100).toFixed(2)}%**`); } };

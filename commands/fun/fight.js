@@ -1,0 +1,2 @@
+export default { name: "fight", aliases: ["duel"], description: "Combat entre deux mentions", usage: "fight @a @b", category: "fun", cooldown: 3,
+  async execute(client, message) { const u = [...message.mentions.users.values()]; if (u.length < 2) return message.channel.send("❌ Mentionne 2 personnes."); const [a, b] = u.map((x) => [x.username, Math.floor(Math.random() * 100)]); await message.channel.send(`⚔️ **${a[0]}** ${a[1]} — ${b[1]} **${b[0]}**\n🏆 ${a[1] >= b[1] ? a[0] : b[0]}`); } };

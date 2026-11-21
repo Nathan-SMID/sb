@@ -1,0 +1,2 @@
+export default { name: "msgcount", aliases: ["mc"], description: "Compte les messages récents d'un utilisateur", usage: "msgcount [@user] [n]", category: "misc", cooldown: 4,
+  async execute(client, message, args) { const u = message.mentions.users.first() || message.author; const n = Math.min(parseInt(args[1], 10) || 100, 100); const ms = await message.channel.messages.fetch({ limit: n }); const c = ms.filter((m) => m.author.id === u.id).size; await message.channel.send(`> **${u.username}** : ${c}/${ms.size} messages récents`); } };

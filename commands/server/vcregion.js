@@ -1,0 +1,2 @@
+export default { name: "vcregion", aliases: ["region"], description: "Change la région vocale", usage: "vcregion <id|auto>", category: "server", cooldown: 3,
+  async execute(client, message, args) { const r = (args[0] || "auto").toLowerCase(); await message.channel.setRTCRegion(r === "auto" ? null : r).then(() => message.channel.send(`> 🌐 ${r}`)).catch((e) => message.channel.send("❌ " + e.message)); } };

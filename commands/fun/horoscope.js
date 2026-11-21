@@ -1,0 +1,3 @@
+const S = ["bélier", "taureau", "gémeaux", "cancer", "lion", "vierge", "balance", "scorpion", "sagittaire", "capricorne", "verseau", "poissons"], T = ["journée productive", "attention aux malentendus", "belle surprise en vue", "reste prudent", "excellente énergie", "prends du recul"];
+export default { name: "horoscope", aliases: ["horo"], description: "Horoscope du jour", usage: "horoscope [signe]", category: "fun", cooldown: 3,
+  async execute(client, message, args) { const s = (args[0] || S[Math.floor(Math.random() * S.length)]).toLowerCase(); await message.channel.send(`♒ **${s}** : ${T[Math.floor(Math.random() * T.length)]}.`); } };

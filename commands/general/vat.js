@@ -1,0 +1,2 @@
+export default { name: "vat", aliases: ["tva"], description: "Prix TTC", usage: "vat <prix> <pct>", category: "general", cooldown: 1,
+  async execute(client, message, args) { const p = parseFloat(args[0]), t = parseFloat(args[1]) || 20; if (!p) return message.channel.send("❌ Usage : `vat 100 20`"); await message.channel.send(`> TTC : **${(p * (1 + t / 100)).toFixed(2)}** (TVA ${(p * t / 100).toFixed(2)})`); } };

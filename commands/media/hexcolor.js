@@ -1,0 +1,2 @@
+export default { name: "hexcolor", aliases: ["hc"], description: "Aperçu d'une couleur hex", usage: "hexcolor <hex>", category: "media", cooldown: 2,
+  async execute(client, message, args) { const h = (args[0] || "").replace("#", ""); if (!/^[0-9a-f]{6}$/i.test(h)) return message.channel.send("❌ Hex invalide (ex : `ff8800`)."); await message.channel.send(`> 🎨 #${h}\n> rgb(${parseInt(h.slice(0, 2), 16)}, ${parseInt(h.slice(2, 4), 16)}, ${parseInt(h.slice(4, 6), 16)})\nhttps://singlecolorimage.com/get/${h}/200x200`); } };

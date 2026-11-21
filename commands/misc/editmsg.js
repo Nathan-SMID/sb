@@ -1,0 +1,2 @@
+export default { name: "editmsg", aliases: ["em"], description: "Édite le message répondu s'il est de toi", usage: "editmsg <texte>", category: "misc", cooldown: 2,
+  async execute(client, message, args) { if (!message.reference?.messageId) return message.channel.send("❌ Réponds à ton message."); const m = await message.channel.messages.fetch(message.reference.messageId); if (m.author.id !== client.user.id) return message.channel.send("❌ Ce message n'est pas de toi."); await m.edit(args.join(" ")).catch((e) => message.channel.send("❌ " + e.message)); } };

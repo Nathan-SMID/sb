@@ -1,0 +1,2 @@
+export default { name: "luck", aliases: ["chance"], description: "Ton niveau de chance", usage: "luck [@user]", category: "fun", cooldown: 2,
+  async execute(client, message) { const t = message.mentions.users.first() || message.author; let h = 0; for (const c of t.id) h = (h * 31 + c.charCodeAt(0)) % 101; const f = Math.round(h / 10); await message.channel.send(`🍀 **${t.username}** : ${"█".repeat(f)}${"░".repeat(10 - f)} **${h}%**`); } };

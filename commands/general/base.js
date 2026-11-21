@@ -1,0 +1,2 @@
+export default { name: "base", aliases: ["baseconv"], description: "Convertit entre bases 2-36", usage: "base <de> <vers> <valeur>", category: "general", cooldown: 1,
+  async execute(client, message, args) { const f = parseInt(args[0], 10), t = parseInt(args[1], 10), v = args[2]; if (!f || !t || !v) return message.channel.send("❌ Usage : `base 10 16 255`"); const n = parseInt(v, f); if (isNaN(n)) return message.channel.send("❌ Valeur invalide."); await message.channel.send(`> ${n.toString(t)}`); } };

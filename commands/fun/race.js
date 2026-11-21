@@ -1,0 +1,2 @@
+export default { name: "race", aliases: ["course"], description: "Course entre les mentions", usage: "race @a @b @c", category: "fun", cooldown: 3,
+  async execute(client, message) { const u = [...message.mentions.users.values()]; if (u.length < 2) return message.channel.send("❌ Mentionne au moins 2 personnes."); const r = u.map((x) => ({ n: x.username, s: Math.random() })).sort((a, b) => b.s - a.s); await message.channel.send(r.map((x, i) => `${["🥇", "🥈", "🥉"][i] || "▫️"} ${x.n}`).join("\n")); } };

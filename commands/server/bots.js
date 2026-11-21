@@ -1,0 +1,2 @@
+export default { name: "bots", aliases: ["robot"], description: "Liste les bots du serveur", usage: "bots", category: "server", cooldown: 4,
+  async execute(client, message) { if (!message.guild) return message.channel.send("❌ Serveur uniquement."); const b = message.guild.members.cache.filter((m) => m.user.bot).first(25); if (!b.length) return message.channel.send("❌ Aucun bot en cache."); await message.channel.send(b.map((m) => `> ${m.user.tag} \`${m.id}\``).join("\n")); } };

@@ -1,0 +1,2 @@
+export default { name: "cowsay", aliases: ["vache"], description: "La vache qui parle", usage: "cowsay <texte>", category: "media", cooldown: 2,
+  async execute(client, message, args) { const t = (args.join(" ") || "meuh").slice(0, 120); await message.channel.send("```\n " + "_".repeat(t.length + 2) + "\n< " + t + " >\n " + "-".repeat(t.length + 2) + "\n        \\   ^__^\n         \\  (oo)\\_______\n            (__)\\       )\\/\\\n                ||----w |\n                ||     ||\n```"); } };

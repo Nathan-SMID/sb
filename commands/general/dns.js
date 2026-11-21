@@ -1,0 +1,3 @@
+import axios from "axios";
+export default { name: "dns", aliases: ["resolve"], description: "Résolution DNS", usage: "dns <domaine> [type]", category: "general", cooldown: 3,
+  async execute(client, message, args) { if (!args[0]) return message.channel.send("❌ Domaine ?"); try { const { data } = await axios.get("https://dns.google/resolve", { params: { name: args[0], type: (args[1] || "A").toUpperCase() }, timeout: 8000 }); const r = (data.Answer || []).map((a) => `> ${a.type} ${a.data}`).join("\n") || "> aucun enregistrement"; await message.channel.send(r.slice(0, 1900)); } catch { await message.channel.send("❌ Échec de résolution."); } } };

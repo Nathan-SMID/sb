@@ -1,0 +1,2 @@
+export default { name: "widget", aliases: ["wg"], description: "Bascule le widget du serveur", usage: "widget", category: "server", cooldown: 3,
+  async execute(client, message) { if (!message.guild) return message.channel.send("❌ Serveur uniquement."); await message.guild.setWidgetSettings({ enabled: !message.guild.widgetEnabled }).then(() => message.channel.send(`> widget : ${!message.guild.widgetEnabled}`)).catch((e) => message.channel.send("❌ " + e.message)); } };

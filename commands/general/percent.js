@@ -1,0 +1,2 @@
+export default { name: "percent", aliases: ["pct"], description: "X représente quel % de Y", usage: "percent <x> <y>", category: "general", cooldown: 1,
+  async execute(client, message, args) { const x = parseFloat(args[0]), y = parseFloat(args[1]); if (!x || !y) return message.channel.send("❌ Usage : `percent 25 200`"); await message.channel.send(`> ${x} = **${((x / y) * 100).toFixed(2)}%** de ${y}`); } };

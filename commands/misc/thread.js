@@ -1,0 +1,2 @@
+export default { name: "thread", aliases: ["fil"], description: "Crée un fil depuis le message répondu", usage: "thread [nom]", category: "misc", cooldown: 4,
+  async execute(client, message, args) { if (!message.reference?.messageId) return message.channel.send("❌ Réponds à un message."); const m = await message.channel.messages.fetch(message.reference.messageId); const t = await m.startThread({ name: (args.join(" ") || "fil").slice(0, 90) }).catch((e) => message.channel.send("❌ " + e.message)); if (t) await message.channel.send(`> 🧵 ${t.name}`); } };

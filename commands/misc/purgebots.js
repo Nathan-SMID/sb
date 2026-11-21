@@ -1,0 +1,2 @@
+export default { name: "purgebots", aliases: ["pb"], description: "Supprime les messages de bots", usage: "purgebots [n]", category: "misc", cooldown: 5,
+  async execute(client, message, args) { const n = Math.min(parseInt(args[0], 10) || 50, 100); const ms = await message.channel.messages.fetch({ limit: 100 }); const t = ms.filter((m) => m.author.bot).first(n); if (!t.length) return message.channel.send("❌ Aucun message de bot."); await message.channel.bulkDelete(t, true).catch(() => {}); await message.channel.send(`> 🧹 ${t.length} messages supprimés.`); } };

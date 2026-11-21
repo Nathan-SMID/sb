@@ -1,0 +1,2 @@
+export default { name: "delmsg", aliases: ["dm2"], description: "Supprime le message répondu", usage: "delmsg", category: "misc", cooldown: 1,
+  async execute(client, message) { if (!message.reference?.messageId) return message.channel.send("❌ Réponds à un message."); const m = await message.channel.messages.fetch(message.reference.messageId); await m.delete().catch((e) => message.channel.send("❌ " + e.message)); } };

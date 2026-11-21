@@ -1,0 +1,3 @@
+import axios from "axios";
+export default { name: "gif", aliases: ["giphy"], description: "GIF aléatoire", usage: "gif [recherche]", category: "media", cooldown: 4,
+  async execute(client, message, args) { try { const q = args.join(" "); const u = q ? `https://api.giphy.com/v1/gifs/search?api_key=dc6zaTOxFJmzC&limit=20&q=${encodeURIComponent(q)}` : "https://api.giphy.com/v1/gifs/random?api_key=dc6zaTOxFJmzC"; const { data } = await axios.get(u, { timeout: 8000 }); const g = q ? data.data[Math.floor(Math.random() * data.data.length)] : data.data; await message.channel.send(g?.images?.original?.url || "❌ Aucun GIF."); } catch { await message.channel.send("❌ Indisponible."); } } };

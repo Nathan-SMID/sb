@@ -1,0 +1,2 @@
+export default { name: "factors", aliases: ["diviseurs"], description: "Diviseurs d'un nombre", usage: "factors <n>", category: "general", cooldown: 1,
+  async execute(client, message, args) { const n = parseInt(args[0], 10); if (!n) return message.channel.send("❌ Nombre ?"); const o = []; for (let i = 1; i <= Math.abs(n); i++) if (n % i === 0) o.push(i); await message.channel.send(`> ${o.join(", ")}`); } };

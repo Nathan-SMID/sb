@@ -1,0 +1,2 @@
+export default { name: "unreactall", aliases: ["ura"], description: "Retire toutes tes réactions du message répondu", usage: "unreactall", category: "misc", cooldown: 2,
+  async execute(client, message) { if (!message.reference?.messageId) return message.channel.send("❌ Réponds à un message."); const m = await message.channel.messages.fetch(message.reference.messageId); let n = 0; for (const r of m.reactions.cache.values()) if (r.me) { await r.users.remove(client.user.id).catch(() => {}); n++; } await message.channel.send(`> ${n} réactions retirées`); } };

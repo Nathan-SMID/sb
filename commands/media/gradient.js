@@ -1,0 +1,2 @@
+export default { name: "gradient", aliases: ["degrade"], description: "Aperçu d'un dégradé", usage: "gradient <hex1> <hex2>", category: "media", cooldown: 2,
+  async execute(client, message, args) { const [a, b] = args.map((x) => (x || "").replace("#", "")); if (!/^[0-9a-f]{6}$/i.test(a || "") || !/^[0-9a-f]{6}$/i.test(b || "")) return message.channel.send("❌ Usage : `gradient ff0000 0000ff`"); await message.channel.send(`> 🌈 #${a} → #${b}\nhttps://dummyimage.com/600x200/${a}/${b}.png`); } };

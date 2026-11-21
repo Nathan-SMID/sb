@@ -1,0 +1,2 @@
+export default { name: "cmdcount", aliases: ["ccount"], description: "Nombre de commandes par catégorie", usage: "cmdcount", category: "settings", cooldown: 3,
+  async execute(client, message) { const m = new Map(); for (const c of client.commands.values()) m.set(c.category, (m.get(c.category) || 0) + 1); await message.channel.send("```\n" + [...m].map(([k, v]) => `${k.padEnd(14)} ${v}`).join("\n") + `\ntotal          ${client.commands.size}\n````); } };

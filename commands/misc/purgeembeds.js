@@ -1,0 +1,2 @@
+export default { name: "purgeembeds", aliases: ["pe"], description: "Supprime les messages avec embed", usage: "purgeembeds [n]", category: "misc", cooldown: 5,
+  async execute(client, message, args) { const n = Math.min(parseInt(args[0], 10) || 50, 100); const ms = await message.channel.messages.fetch({ limit: 100 }); const t = ms.filter((m) => m.embeds.length > 0).first(n); if (!t.length) return message.channel.send("❌ Aucun embed."); await message.channel.bulkDelete(t, true).catch(() => {}); await message.channel.send(`> 🧹 ${t.length} messages supprimés.`); } };

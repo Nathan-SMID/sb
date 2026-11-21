@@ -1,0 +1,3 @@
+const C = ["pierre", "feuille", "ciseaux", "lézard", "spock"], W = { pierre: ["ciseaux", "lézard"], feuille: ["pierre", "spock"], ciseaux: ["feuille", "lézard"], lézard: ["spock", "feuille"], spock: ["pierre", "ciseaux"] };
+export default { name: "rpsls", aliases: ["shspock"], description: "Pierre-feuille-ciseaux-lézard-spock", usage: "rpsls <choix>", category: "fun", cooldown: 2,
+  async execute(client, message, args) { const me = (args[0] || "").toLowerCase(); if (!C.includes(me)) return message.channel.send(`❌ Choix : ${C.join(", ")}`); const bot = C[Math.floor(Math.random() * C.length)]; const r = me === bot ? "égalité" : W[me].includes(bot) ? "gagné" : "perdu"; await message.channel.send(`🤖 **${bot}** → ${r}`); } };

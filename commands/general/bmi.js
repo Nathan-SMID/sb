@@ -1,0 +1,2 @@
+export default { name: "bmi", aliases: ["imc"], description: "IMC", usage: "bmi <kg> <cm>", category: "general", cooldown: 2,
+  async execute(client, message, args) { const w = parseFloat(args[0]), h = parseFloat(args[1]) / 100; if (!w || !h) return message.channel.send("❌ Usage : `bmi 70 175`"); const b = w / (h * h); await message.channel.send(`> IMC : **${b.toFixed(1)}** → ${b < 18.5 ? "maigreur" : b < 25 ? "normal" : b < 30 ? "surpoids" : "obésité"}`); } };

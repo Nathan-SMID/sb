@@ -1,0 +1,2 @@
+export default { name: "react", aliases: ["reaction"], description: "Réagit au message répondu", usage: "react <emoji>", category: "misc", cooldown: 1,
+  async execute(client, message, args) { if (!message.reference?.messageId) return message.channel.send("❌ Réponds à un message."); const m = await message.channel.messages.fetch(message.reference.messageId); await m.react(args[0] || "✅").catch((e) => message.channel.send("❌ " + e.message)); } };

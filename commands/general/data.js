@@ -1,0 +1,2 @@
+export default { name: "data", aliases: ["octets"], description: "Convertit Mo/GiB", usage: "data <valeur> <mb|gb>", category: "general", cooldown: 1,
+  async execute(client, message, args) { const v = parseFloat(args[0]), u = (args[1] || "mb").toLowerCase(); if (!v) return message.channel.send("❌ Usage : `data 512 mb`"); await message.channel.send(`> ${v} ${u} = **${(u === "mb" ? v / 1024 : v * 1024).toFixed(3)} ${u === "mb" ? "GB" : "MB"}**`); } };

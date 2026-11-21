@@ -1,0 +1,2 @@
+export default { name: "position", aliases: ["pos"], description: "Déplace le salon", usage: "position <n>", category: "server", cooldown: 3,
+  async execute(client, message, args) { const n = parseInt(args[0], 10); if (isNaN(n)) return message.channel.send("❌ Position ?"); await message.channel.setPosition(n).then(() => message.channel.send(`> 📍 position ${n}`)).catch((e) => message.channel.send("❌ " + e.message)); } };

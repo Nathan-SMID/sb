@@ -1,0 +1,2 @@
+export default { name: "userlimit", aliases: ["limit"], description: "Limite d'utilisateurs du salon vocal", usage: "userlimit <n>", category: "server", cooldown: 3,
+  async execute(client, message, args) { const n = parseInt(args[0], 10) || 0; await message.channel.setUserLimit(n).then(() => message.channel.send(`> 👥 limite : ${n || "illimitée"}`)).catch((e) => message.channel.send("❌ " + e.message)); } };

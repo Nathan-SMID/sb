@@ -1,0 +1,2 @@
+export default { name: "reactlist", aliases: ["rl"], description: "Liste les réactions du message répondu", usage: "reactlist", category: "misc", cooldown: 2,
+  async execute(client, message) { if (!message.reference?.messageId) return message.channel.send("❌ Réponds à un message."); const m = await message.channel.messages.fetch(message.reference.messageId); if (!m.reactions.cache.size) return message.channel.send("❌ Aucune réaction."); await message.channel.send([...m.reactions.cache.values()].map((r) => `> ${r.emoji.toString()} × ${r.count}`).join("\n")); } };

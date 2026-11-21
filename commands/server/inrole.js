@@ -1,0 +1,2 @@
+export default { name: "inrole", aliases: ["ir"], description: "Liste les membres d'un rôle", usage: "inrole @role", category: "server", cooldown: 4,
+  async execute(client, message) { const r = message.mentions.roles.first(); if (!r) return message.channel.send("❌ Mentionne un rôle."); const m = r.members.first(25); if (!m.length) return message.channel.send("❌ Personne dans ce rôle."); await message.channel.send(m.map((x) => `> ${x.user.tag}`).join("\n")); } };

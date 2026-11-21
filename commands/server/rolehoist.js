@@ -1,0 +1,2 @@
+export default { name: "rolehoist", aliases: ["rh"], description: "Bascule l'affichage séparé d'un rôle", usage: "rolehoist @role", category: "server", cooldown: 3,
+  async execute(client, message) { const r = message.mentions.roles.first(); if (!r) return message.channel.send("❌ Mentionne un rôle."); await r.setHoist(!r.hoist).then(() => message.channel.send(`> ${r.hoist ? "séparé" : "regroupé"}`)).catch((e) => message.channel.send("❌ " + e.message)); } };

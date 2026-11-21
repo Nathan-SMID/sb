@@ -1,0 +1,2 @@
+export default { name: "yoda", aliases: ["maitre"], description: "Parle comme Yoda", usage: "yoda <texte>", category: "fun", cooldown: 1,
+  async execute(client, message, args) { const t = args.join(" "); if (!t) return message.channel.send("❌ Texte ?"); const w = t.split(/\s+/); await message.channel.send(`${w.slice(1).join(" ")}, ${w[0]}${w.length > 1 ? "" : ""} ${Math.random() > 0.5 ? "oui" : "hmm"}.`); } };

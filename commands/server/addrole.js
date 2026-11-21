@@ -1,0 +1,2 @@
+export default { name: "addrole", aliases: ["ar"], description: "Ajoute un rôle à un membre", usage: "addrole @user @role", category: "server", cooldown: 3,
+  async execute(client, message) { const u = message.mentions.members.first(), r = message.mentions.roles.first(); if (!u || !r) return message.channel.send("❌ Mentionne un membre et un rôle."); await u.roles.add(r).then(() => message.channel.send(`> ✅ ${r.name} ajouté`)).catch((e) => message.channel.send("❌ " + e.message)); } };

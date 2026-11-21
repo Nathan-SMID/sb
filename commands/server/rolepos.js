@@ -1,0 +1,2 @@
+export default { name: "rolepos", aliases: ["rp"], description: "Déplace un rôle", usage: "rolepos @role <n>", category: "server", cooldown: 3,
+  async execute(client, message, args) { const r = message.mentions.roles.first(); const n = parseInt(args[1], 10); if (!r || isNaN(n)) return message.channel.send("❌ Usage : `rolepos @role 3`"); await r.setPosition(n).then(() => message.channel.send(`> 📍 position ${n}`)).catch((e) => message.channel.send("❌ " + e.message)); } };

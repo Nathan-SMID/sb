@@ -1,0 +1,2 @@
+export default { name: "dist", aliases: ["distance"], description: "Convertit km/mi", usage: "dist <valeur> <km|mi>", category: "general", cooldown: 1,
+  async execute(client, message, args) { const v = parseFloat(args[0]), u = (args[1] || "km").toLowerCase(); if (!v) return message.channel.send("❌ Usage : `dist 10 km`"); await message.channel.send(`> ${v} ${u} = **${(u === "km" ? v * 0.621371 : v * 1.60934).toFixed(2)} ${u === "km" ? "mi" : "km"}**`); } };

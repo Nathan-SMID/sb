@@ -1,0 +1,2 @@
+export default { name: "removerole", aliases: ["rr"], description: "Retire un rôle à un membre", usage: "removerole @user @role", category: "server", cooldown: 3,
+  async execute(client, message) { const u = message.mentions.members.first(), r = message.mentions.roles.first(); if (!u || !r) return message.channel.send("❌ Mentionne un membre et un rôle."); await u.roles.remove(r).then(() => message.channel.send(`> ✅ ${r.name} retiré`)).catch((e) => message.channel.send("❌ " + e.message)); } };

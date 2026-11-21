@@ -1,0 +1,2 @@
+export default { name: "bmr", aliases: ["kcal"], description: "Métabolisme de base", usage: "bmr <kg> <cm> <âge> <h|f>", category: "general", cooldown: 2,
+  async execute(client, message, args) { const [w, h, a, s] = [parseFloat(args[0]), parseFloat(args[1]), parseFloat(args[2]), (args[3] || "h").toLowerCase()]; if (!w || !h || !a) return message.channel.send("❌ Usage : `bmr 70 175 25 h`"); const v = 10 * w + 6.25 * h - 5 * a + (s === "f" ? -161 : 5); await message.channel.send(`> BMR : **${Math.round(v)} kcal/jour**`); } };

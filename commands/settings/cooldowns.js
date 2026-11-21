@@ -1,0 +1,2 @@
+export default { name: "cooldowns", aliases: ["cds"], description: "Liste les commandes à cooldown long", usage: "cooldowns", category: "settings", cooldown: 3,
+  async execute(client, message) { const l = [...client.commands.values()].filter((c) => (c.cooldown || 0) >= 5).sort((a, b) => b.cooldown - a.cooldown).slice(0, 25); await message.channel.send(l.map((c) => `> ${c.name} : ${c.cooldown}s`).join("\n") || "> aucun"); } };

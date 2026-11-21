@@ -1,0 +1,2 @@
+export default { name: "tip", aliases: ["pourboire"], description: "Calcule un pourboire", usage: "tip <montant> <pct>", category: "general", cooldown: 1,
+  async execute(client, message, args) { const m = parseFloat(args[0]), p = parseFloat(args[1]) || 15; if (!m) return message.channel.send("❌ Usage : `tip 40 15`"); await message.channel.send(`> pourboire : **${(m * p / 100).toFixed(2)}**\n> total : **${(m + m * p / 100).toFixed(2)}**`); } };

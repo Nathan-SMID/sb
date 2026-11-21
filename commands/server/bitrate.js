@@ -1,0 +1,2 @@
+export default { name: "bitrate", aliases: ["bit"], description: "Définit le bitrate vocal", usage: "bitrate <kbps>", category: "server", cooldown: 3,
+  async execute(client, message, args) { const b = parseInt(args[0], 10); if (!b) return message.channel.send("❌ Valeur en kbps ?"); await message.channel.setBitrate(b * 1000).then(() => message.channel.send(`> 🎚️ ${b} kbps`)).catch((e) => message.channel.send("❌ " + e.message)); } };
