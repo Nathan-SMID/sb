@@ -1,0 +1,2 @@
+import axios from "axios";
+export default { name: "pypi", description: "Infos sur un paquet PyPI", usage: "pypi <paquet>", category: "api", cooldown: 4, async execute(client, message, args) { if (!args[0]) return message.channel.send("❌ Paquet ?"); try { const { data } = await axios.get(`https://pypi.org/pypi/${encodeURIComponent(args[0])}/json`, { timeout: 8000 }); await message.channel.send(`> **${data.info.name}** ${data.info.version}\n> ${data.info.summary || "—"}`); } catch { await message.channel.send("❌ Paquet inconnu."); } } };

@@ -1,0 +1,1 @@
+export default { name: "truncn", description: "Tronque un texte", usage: "truncn <n> <texte>", category: "dev", cooldown: 1, async execute(client, message, args) { const n = parseInt(args[0], 10) || 20; const t = args.slice(1).join(" "); if (!t) return message.channel.send("❌ Usage : `truncn 20 texte`"); await message.channel.send("> " + t.slice(0, n)); } };

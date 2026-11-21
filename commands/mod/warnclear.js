@@ -1,0 +1,3 @@
+import fs from "fs";
+const F = "data/moddata.json";
+export default { name: "warnclear", description: "Efface les avertissements", usage: "warnclear @user", category: "mod", cooldown: 3, async execute(client, message) { const u = message.mentions.users.first(); if (!u) return message.channel.send("❌ Mentionne quelqu'un."); const d = JSON.parse(fs.existsSync(F) ? fs.readFileSync(F, "utf8") : "{}"); d.warns = d.warns || {}; d.warns[u.id] = []; fs.mkdirSync("data", { recursive: true }); fs.writeFileSync(F, JSON.stringify(d, null, 2)); await message.channel.send(`> 🧽 avertissements de ${u.tag} effacés`); } };

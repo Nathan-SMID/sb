@@ -1,0 +1,2 @@
+import axios from "axios";
+export default { name: "rhymes", description: "Rimes d'un mot", usage: "rhymes <mot>", category: "api", cooldown: 3, async execute(client, message, args) { if (!args[0]) return message.channel.send("❌ Mot ?"); try { const { data } = await axios.get(`https://api.datamuse.com/words?rel_rhy=${encodeURIComponent(args[0])}&max=15`, { timeout: 8000 }); await message.channel.send("> " + (data.map((w) => w.word).join(", ") || "aucune")); } catch { await message.channel.send("❌ Indisponible."); } } };

@@ -1,0 +1,2 @@
+import axios from "axios";
+export default { name: "cocktail", description: "Cocktail aléatoire", usage: "cocktail", category: "api", cooldown: 5, async execute(client, message) { try { const { data } = await axios.get("https://www.thecocktaildb.com/api/json/v1/1/random.php", { timeout: 10000 }); const d = data.drinks[0]; await message.channel.send(`> ${d.strDrink}\n> ${d.strGlass} · ${d.strAlcoholic}\n${d.strDrinkThumb}`); } catch { await message.channel.send("❌ Indisponible."); } } };

@@ -1,0 +1,1 @@
+export default { name: "barcode", description: "Génère un code-barres", usage: "barcode <texte>", category: "api", cooldown: 3, async execute(client, message, args) { const t = args.join(" "); if (!t) return message.channel.send("❌ Texte ?"); await message.channel.send(`https://barcode.tec-it.com/barcode.ashx?data=${encodeURIComponent(t)}&code=Code128`); } };

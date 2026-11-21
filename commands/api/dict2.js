@@ -1,0 +1,2 @@
+import axios from "axios";
+export default { name: "dict2", description: "Définition (autre source)", usage: "dict2 <mot>", category: "api", cooldown: 4, async execute(client, message, args) { if (!args[0]) return message.channel.send("❌ Mot ?"); try { const { data } = await axios.get(`https://api.dictionaryapi.dev/api/v2/entries/en/${encodeURIComponent(args[0])}`, { timeout: 8000 }); await message.channel.send(`> ${data[0].word} : ${data[0].meanings[0].definitions[0].definition}`); } catch { await message.channel.send("❌ Introuvable."); } } };

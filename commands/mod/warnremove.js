@@ -1,0 +1,3 @@
+import fs from "fs";
+const F = "data/moddata.json";
+export default { name: "warnremove", description: "Retire un avertissement précis", usage: "warnremove @user <n>", category: "mod", cooldown: 3, async execute(client, message, args) { const u = message.mentions.users.first(); const i = parseInt(args[1], 10) - 1; if (!u || isNaN(i)) return message.channel.send("❌ Usage : `warnremove @user 1`"); const d = JSON.parse(fs.existsSync(F) ? fs.readFileSync(F, "utf8") : "{}"); const l = d.warns?.[u.id] || []; if (!l[i]) return message.channel.send("❌ Avertissement introuvable."); l.splice(i, 1); fs.mkdirSync("data", { recursive: true }); fs.writeFileSync(F, JSON.stringify(d, null, 2)); await message.channel.send("> 🗑️ retiré"); } };

@@ -1,0 +1,2 @@
+import axios from "axios";
+export default { name: "randomuser", description: "Profil factice", usage: "randomuser", category: "api", cooldown: 3, async execute(client, message) { try { const { data } = await axios.get("https://randomuser.me/api/", { timeout: 8000 }); const u = data.results[0]; await message.channel.send(`> ${u.name.first} ${u.name.last}\n> ${u.email}\n> ${u.location.country}\n${u.picture.large}`); } catch { await message.channel.send("❌ Indisponible."); } } };

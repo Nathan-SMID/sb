@@ -1,0 +1,1 @@
+export default { name: "channeltopic", description: "Sujet du salon", usage: "channeltopic [#salon]", category: "discord", cooldown: 2, async execute(client, message) { const c = message.mentions.channels.first() || message.channel; await message.channel.send("> " + (c.topic || "aucun sujet")); } };

@@ -1,0 +1,2 @@
+const A = "ABCDEFGHIJKLMNOPQRSTUVWXYZ234567";
+export default { name: "base32", description: "Encodage base32", usage: "base32 <texte>", category: "dev", cooldown: 1, async execute(client, message, args) { const t = args.join(" "); if (!t) return message.channel.send("❌ Texte ?"); const b = Buffer.from(t); let bits = "", o = ""; for (const x of b) bits += x.toString(2).padStart(8, "0"); for (let i = 0; i < bits.length; i += 5) o += A[parseInt(bits.slice(i, i + 5).padEnd(5, "0"), 2)]; await message.channel.send("> `" + o + "`"); } };

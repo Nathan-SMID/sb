@@ -1,0 +1,1 @@
+export default { name: "oct2dec", description: "Octal vers décimal", usage: "oct2dec <oct>", category: "dev", cooldown: 1, async execute(client, message, args) { const t = args[0] || ""; if (!/^[0-7]+$/.test(t)) return message.channel.send("❌ Octal ?"); await message.channel.send("> " + parseInt(t, 8)); } };

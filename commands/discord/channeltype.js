@@ -1,0 +1,1 @@
+export default { name: "channeltype", description: "Type du salon", usage: "channeltype", category: "discord", cooldown: 2, async execute(client, message) { await message.channel.send("> " + message.channel.type); } };

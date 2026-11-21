@@ -1,0 +1,2 @@
+import axios from "axios";
+export default { name: "weathernow", description: "Météo brute (format court)", usage: "weathernow <ville>", category: "api", cooldown: 5, async execute(client, message, args) { if (!args[0]) return message.channel.send("❌ Ville ?"); try { const { data } = await axios.get(`https://wttr.in/${encodeURIComponent(args.join(" "))}?format=3`, { timeout: 12000 }); await message.channel.send("> " + data); } catch { await message.channel.send("❌ Indisponible."); } } };

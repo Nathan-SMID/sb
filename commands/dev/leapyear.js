@@ -1,0 +1,1 @@
+export default { name: "leapyear", description: "Année bissextile ?", usage: "leapyear <année>", category: "dev", cooldown: 1, async execute(client, message, args) { const y = parseInt(args[0], 10); if (!y) return message.channel.send("❌ Année ?"); await message.channel.send("> " + (y % 4 === 0 && (y % 100 !== 0 || y % 400 === 0) ? "oui" : "non")); } };

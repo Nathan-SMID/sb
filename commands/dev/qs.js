@@ -1,0 +1,1 @@
+export default { name: "qs", description: "Parse une query string", usage: "qs <a=1&b=2>", category: "dev", cooldown: 1, async execute(client, message, args) { const p = new URLSearchParams(args.join(" ")); await message.channel.send("```json\n" + JSON.stringify(Object.fromEntries(p), null, 2) + "\n```"); } };

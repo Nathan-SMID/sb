@@ -1,0 +1,2 @@
+import axios from "axios";
+export default { name: "apod", description: "Image astronomique du jour", usage: "apod", category: "api", cooldown: 5, async execute(client, message) { try { const { data } = await axios.get("https://api.nasa.gov/planetary/apod?api_key=DEMO_KEY", { timeout: 10000 }); await message.channel.send(`> ${data.title}\n> ${data.url}`); } catch { await message.channel.send("❌ Indisponible."); } } };

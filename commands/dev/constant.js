@@ -1,0 +1,1 @@
+export default { name: "constant", description: "CONSTANT_CASE", usage: "constant <texte>", category: "dev", cooldown: 1, async execute(client, message, args) { const t = args.join(" "); if (!t) return message.channel.send("❌ Texte ?"); await message.channel.send(t.toUpperCase().replace(/[^A-Z0-9]+/g, "_").replace(/^_|_$/g, "").slice(0, 1900)); } };

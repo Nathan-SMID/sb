@@ -1,0 +1,2 @@
+import axios from "axios";
+export default { name: "rick", description: "Personnage Rick & Morty", usage: "rick", category: "api", cooldown: 3, async execute(client, message) { try { const { data } = await axios.get("https://rickandmortyapi.com/api/character/" + (Math.floor(Math.random() * 826) + 1), { timeout: 8000 }); await message.channel.send(`> ${data.name} — ${data.status} · ${data.species}\n${data.image}`); } catch { await message.channel.send("❌ Indisponible."); } } };

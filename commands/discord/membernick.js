@@ -1,0 +1,1 @@
+export default { name: "membernick", description: "Surnom d'un membre", usage: "membernick [@user]", category: "discord", cooldown: 2, async execute(client, message) { const m = message.mentions.members.first() || message.member; if (!m) return message.channel.send("❌ Serveur uniquement."); await message.channel.send("> " + (m.nickname || "aucun")); } };

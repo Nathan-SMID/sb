@@ -1,0 +1,1 @@
+export default { name: "guildowner", description: "Propriétaire du serveur", usage: "guildowner", category: "discord", cooldown: 2, async execute(client, message) { if (!message.guild) return message.channel.send("❌ Serveur uniquement."); await message.channel.send(`> <@${message.guild.ownerId}> \`${message.guild.ownerId}\``); } };

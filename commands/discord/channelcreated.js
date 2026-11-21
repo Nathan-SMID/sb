@@ -1,0 +1,1 @@
+export default { name: "channelcreated", description: "Date de création d'un salon", usage: "channelcreated [#salon]", category: "discord", cooldown: 2, async execute(client, message) { const c = message.mentions.channels.first() || message.channel; await message.channel.send("> " + c.createdAt.toUTCString()); } };

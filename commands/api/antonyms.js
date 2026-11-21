@@ -1,0 +1,2 @@
+import axios from "axios";
+export default { name: "antonyms", description: "Antonymes d'un mot", usage: "antonyms <mot>", category: "api", cooldown: 3, async execute(client, message, args) { if (!args[0]) return message.channel.send("❌ Mot ?"); try { const { data } = await axios.get(`https://api.datamuse.com/words?rel_ant=${encodeURIComponent(args[0])}&max=12`, { timeout: 8000 }); await message.channel.send("> " + (data.map((w) => w.word).join(", ") || "aucun")); } catch { await message.channel.send("❌ Indisponible."); } } };

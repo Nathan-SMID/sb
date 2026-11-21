@@ -1,0 +1,1 @@
+export default { name: "permreset", description: "Réinitialise les surcharges du salon", usage: "permreset", category: "mod", cooldown: 5, async execute(client, message) { for (const o of [...message.channel.permissionOverwrites.cache.values()]) await o.delete().catch(() => {}); await message.channel.send("> ♻️ surcharges réinitialisées"); } };

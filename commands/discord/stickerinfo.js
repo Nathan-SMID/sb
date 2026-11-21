@@ -1,0 +1,1 @@
+export default { name: "stickerinfo", description: "Infos sur un sticker", usage: "stickerinfo <id>", category: "discord", cooldown: 2, async execute(client, message, args) { const s = message.guild?.stickers.cache.get(args[0]); if (!s) return message.channel.send("❌ Sticker inconnu."); await message.channel.send(`> \`${s.name}\`\n> id : \`${s.id}\`\n${s.url}`); } };

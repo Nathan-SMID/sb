@@ -1,0 +1,1 @@
+export default { name: "useraccent", description: "Couleur d'accent d'un utilisateur", usage: "useraccent [@user]", category: "discord", cooldown: 2, async execute(client, message) { const u = message.mentions.users.first() || message.author; await message.channel.send("> " + (u.hexAccentColor || "aucune")); } };

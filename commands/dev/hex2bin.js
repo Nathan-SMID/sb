@@ -1,0 +1,1 @@
+export default { name: "hex2bin", description: "Hexadécimal vers binaire", usage: "hex2bin <hex>", category: "dev", cooldown: 1, async execute(client, message, args) { const t = (args[0] || "").replace(/^0x/, ""); if (!/^[0-9a-f]+$/i.test(t)) return message.channel.send("❌ Hex ?"); await message.channel.send("> " + parseInt(t, 16).toString(2)); } };

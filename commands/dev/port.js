@@ -1,0 +1,2 @@
+const P = { 21: "FTP", 22: "SSH", 23: "Telnet", 25: "SMTP", 53: "DNS", 80: "HTTP", 110: "POP3", 143: "IMAP", 443: "HTTPS", 445: "SMB", 3306: "MySQL", 3389: "RDP", 5432: "PostgreSQL", 6379: "Redis", 27017: "MongoDB" };
+export default { name: "port", description: "Service d'un port", usage: "port <n>", category: "dev", cooldown: 1, async execute(client, message, args) { const p = parseInt(args[0], 10); if (isNaN(p)) return message.channel.send("❌ Port ?"); await message.channel.send(`> ${p} : ${P[p] || "inconnu"}`); } };

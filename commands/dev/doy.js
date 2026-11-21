@@ -1,0 +1,1 @@
+export default { name: "doy", description: "Jour de l'année", usage: "doy [date]", category: "dev", cooldown: 1, async execute(client, message, args) { const d = args[0] ? new Date(args[0]) : new Date(); if (isNaN(d)) return message.channel.send("❌ Date invalide."); await message.channel.send(`> jour ${Math.floor((d - new Date(d.getFullYear(), 0, 0)) / 86400000)}`); } };

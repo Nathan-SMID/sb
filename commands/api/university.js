@@ -1,0 +1,2 @@
+import axios from "axios";
+export default { name: "university", description: "Universités par nom", usage: "university <nom>", category: "api", cooldown: 4, async execute(client, message, args) { if (!args[0]) return message.channel.send("❌ Nom ?"); try { const { data } = await axios.get(`http://universities.hipolabs.com/search?name=${encodeURIComponent(args.join(" "))}`, { timeout: 10000 }); await message.channel.send(data.slice(0, 5).map((u) => `> ${u.name} (${u.country})`).join("\n") || "> aucune"); } catch { await message.channel.send("❌ Indisponible."); } } };

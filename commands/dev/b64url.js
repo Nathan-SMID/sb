@@ -1,0 +1,1 @@
+export default { name: "b64url", description: "Base64 URL-safe", usage: "b64url <texte>", category: "dev", cooldown: 1, async execute(client, message, args) { const t = args.join(" "); if (!t) return message.channel.send("❌ Texte ?"); await message.channel.send("> `" + Buffer.from(t).toString("base64url") + "`"); } };

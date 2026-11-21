@@ -1,0 +1,1 @@
+export default { name: "placeholder", description: "Image factice", usage: "placeholder <largeur> <hauteur>", category: "api", cooldown: 2, async execute(client, message, args) { const w = Math.min(parseInt(args[0], 10) || 600, 2000), h = Math.min(parseInt(args[1], 10) || 400, 2000); await message.channel.send(`https://dummyimage.com/${w}x${h}/333/fff&text=${w}x${h}`); } };

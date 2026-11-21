@@ -1,0 +1,1 @@
+export default { name: "shr", description: "Décalage à droite", usage: "shr <n> <bits>", category: "dev", cooldown: 1, async execute(client, message, args) { const n = parseInt(args[0], 10), b = parseInt(args[1], 10) || 1; if (isNaN(n)) return message.channel.send("❌ Nombre ?"); await message.channel.send(`> ${n >> b}`); } };

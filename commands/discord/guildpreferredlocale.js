@@ -1,0 +1,1 @@
+export default { name: "guildpreferredlocale", description: "Langue du serveur", usage: "guildpreferredlocale", category: "discord", cooldown: 2, async execute(client, message) { if (!message.guild) return message.channel.send("❌ Serveur uniquement."); await message.channel.send("> " + message.guild.preferredLocale); } };

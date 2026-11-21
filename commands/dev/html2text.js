@@ -1,0 +1,1 @@
+export default { name: "html2text", description: "Retire les balises HTML", usage: "html2text <html>", category: "dev", cooldown: 1, async execute(client, message, args) { const t = args.join(" "); if (!t) return message.channel.send("❌ HTML ?"); await message.channel.send(t.replace(/<[^>]+>/g, "").replace(/\s+/g, " ").trim().slice(0, 1900)); } };

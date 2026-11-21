@@ -1,0 +1,2 @@
+import axios from "axios";
+export default { name: "swapi", description: "Personnage Star Wars", usage: "swapi", category: "api", cooldown: 3, async execute(client, message) { try { const { data } = await axios.get("https://swapi.info/api/people/" + (Math.floor(Math.random() * 82) + 1), { timeout: 8000 }); await message.channel.send(`> ${data.name} — ${data.birth_year}\n> ${data.height} cm · ${data.mass} kg`); } catch { await message.channel.send("❌ Indisponible."); } } };

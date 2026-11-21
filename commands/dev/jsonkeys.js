@@ -1,0 +1,1 @@
+export default { name: "jsonkeys", description: "Clés d'un JSON", usage: "jsonkeys <json>", category: "dev", cooldown: 1, async execute(client, message, args) { try { const o = JSON.parse(args.join(" ")); await message.channel.send("> " + (Object.keys(o).join(", ") || "aucune")); } catch { await message.channel.send("❌ JSON invalide."); } } };

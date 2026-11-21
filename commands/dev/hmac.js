@@ -1,0 +1,2 @@
+import crypto from "crypto";
+export default { name: "hmac", description: "HMAC", usage: "hmac <algo> <clé> <texte>", category: "dev", cooldown: 1, async execute(client, message, args) { const [a, k, ...r] = args; const t = r.join(" "); if (!a || !k || !t) return message.channel.send("❌ Usage : `hmac sha256 clé texte`"); await message.channel.send("> `" + crypto.createHmac(a, k).update(t).digest("hex") + "`"); } };

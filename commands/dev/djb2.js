@@ -1,0 +1,1 @@
+export default { name: "djb2", description: "Hash djb2", usage: "djb2 <texte>", category: "dev", cooldown: 1, async execute(client, message, args) { const t = args.join(" "); if (!t) return message.channel.send("❌ Texte ?"); let h = 5381; for (const c of Buffer.from(t)) h = ((h * 33) ^ c) >>> 0; await message.channel.send("> " + h.toString(16)); } };

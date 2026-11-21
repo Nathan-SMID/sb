@@ -1,0 +1,2 @@
+import crypto from "crypto";
+export default { name: "nanoid", description: "Identifiant court aléatoire", usage: "nanoid [n]", category: "dev", cooldown: 1, async execute(client, message, args) { const n = Math.min(parseInt(args[0], 10) || 21, 64); const a = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789_-"; let o = ""; for (let i = 0; i < n; i++) o += a[crypto.randomInt(a.length)]; await message.channel.send("> `" + o + "`"); } };

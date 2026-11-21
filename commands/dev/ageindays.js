@@ -1,0 +1,1 @@
+export default { name: "ageindays", description: "Jours depuis une date", usage: "ageindays <date>", category: "dev", cooldown: 1, async execute(client, message, args) { const d = new Date(args[0]); if (isNaN(d)) return message.channel.send("❌ Date invalide."); await message.channel.send(`> ${Math.floor((Date.now() - d) / 86400000)} jours`); } };

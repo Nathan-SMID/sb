@@ -1,0 +1,1 @@
+export default { name: "channelslow", description: "Slowmode actuel", usage: "channelslow", category: "discord", cooldown: 2, async execute(client, message) { await message.channel.send(`> ${message.channel.rateLimitPerUser || 0} secondes`); } };

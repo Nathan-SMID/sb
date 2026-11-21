@@ -1,0 +1,2 @@
+import axios from "axios";
+export default { name: "countrycode", description: "Pays depuis un code", usage: "countrycode <code>", category: "api", cooldown: 3, async execute(client, message, args) { if (!args[0]) return message.channel.send("❌ Code ?"); try { const { data } = await axios.get(`https://restcountries.com/v3.1/alpha/${args[0]}?fields=name,capital,region`, { timeout: 8000 }); await message.channel.send(`> ${data[0].name.common} — ${data[0].region} · ${data[0].capital?.[0] || "—"}`); } catch { await message.channel.send("❌ Code inconnu."); } } };

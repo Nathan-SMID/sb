@@ -1,0 +1,1 @@
+export default { name: "usertag", description: "Tag complet d'un utilisateur", usage: "usertag [@user]", category: "discord", cooldown: 2, async execute(client, message) { const u = message.mentions.users.first() || message.author; await message.channel.send(`> ${u.username}${u.discriminator !== "0" ? "#" + u.discriminator : ""}`); } };

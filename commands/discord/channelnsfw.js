@@ -1,0 +1,1 @@
+export default { name: "channelnsfw", description: "État NSFW du salon", usage: "channelnsfw", category: "discord", cooldown: 2, async execute(client, message) { await message.channel.send("> " + (message.channel.nsfw ? "NSFW" : "SFW")); } };

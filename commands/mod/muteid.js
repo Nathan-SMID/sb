@@ -1,0 +1,2 @@
+import { parseTime } from "../../utils/functions.js";
+export default { name: "muteid", description: "Mute par ID", usage: "muteid <id> <durée>", category: "mod", cooldown: 4, async execute(client, message, args) { const m = await message.guild.members.fetch(args[0]).catch(() => null); const ms = parseTime(args[1] || ""); if (!m || !ms) return message.channel.send("❌ Usage : `muteid 123 10m`"); await m.timeout(ms).then(() => message.channel.send("> 🔇 muté")).catch((e) => message.channel.send("❌ " + e.message)); } };

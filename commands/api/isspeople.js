@@ -1,0 +1,2 @@
+import axios from "axios";
+export default { name: "spacepeople", description: "Qui est dans l'espace (détaillé)", usage: "spacepeople", category: "api", cooldown: 5, async execute(client, message) { try { const { data } = await axios.get("http://api.open-notify.org/astros.json", { timeout: 8000 }); await message.channel.send(data.people.map((p) => `> ${p.name} — ${p.craft}`).join("\n")); } catch { await message.channel.send("❌ Indisponible."); } } };

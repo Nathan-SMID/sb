@@ -1,0 +1,1 @@
+export default { name: "bin2hex", description: "Binaire vers hexadécimal", usage: "bin2hex <binaire>", category: "dev", cooldown: 1, async execute(client, message, args) { const t = args.join(" ").replace(/\s/g, ""); if (!/^[01]+$/.test(t)) return message.channel.send("❌ Binaire ?"); await message.channel.send("> " + parseInt(t, 2).toString(16)); } };

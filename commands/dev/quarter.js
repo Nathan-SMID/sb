@@ -1,0 +1,1 @@
+export default { name: "quarter", description: "Trimestre d'une date", usage: "quarter [date]", category: "dev", cooldown: 1, async execute(client, message, args) { const d = args[0] ? new Date(args[0]) : new Date(); if (isNaN(d)) return message.channel.send("❌ Date invalide."); await message.channel.send(`> T${Math.floor(d.getMonth() / 3) + 1}`); } };

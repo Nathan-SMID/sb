@@ -1,0 +1,2 @@
+import axios from "axios";
+export default { name: "timeapi", description: "Heure d'un fuseau (alternative)", usage: "timeapi <zone>", category: "api", cooldown: 3, async execute(client, message, args) { if (!args[0]) return message.channel.send("❌ Zone ?"); try { const { data } = await axios.get(`https://timeapi.io/api/Time/current/zone?timeZone=${args[0]}`, { timeout: 8000 }); await message.channel.send(`> ${data.dateTime}`); } catch { await message.channel.send("❌ Zone inconnue."); } } };

@@ -1,0 +1,1 @@
+export default { name: "checksum", description: "Somme des codes de caractères", usage: "checksum <texte>", category: "dev", cooldown: 1, async execute(client, message, args) { const t = args.join(" "); if (!t) return message.channel.send("❌ Texte ?"); await message.channel.send("> " + [...t].reduce((a, c) => a + c.charCodeAt(0), 0)); } };

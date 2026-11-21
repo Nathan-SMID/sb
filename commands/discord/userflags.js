@@ -1,0 +1,1 @@
+export default { name: "userflags", description: "Badges d'un utilisateur", usage: "userflags [@user]", category: "discord", cooldown: 3, async execute(client, message) { const u = message.mentions.users.first() || message.author; await message.channel.send("> " + (u.flags?.toArray().join(", ") || "aucun badge")); } };

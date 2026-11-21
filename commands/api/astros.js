@@ -1,0 +1,2 @@
+import axios from "axios";
+export default { name: "astros", description: "Personnes dans l'espace", usage: "astros", category: "api", cooldown: 4, async execute(client, message) { try { const { data } = await axios.get("http://api.open-notify.org/astros.json", { timeout: 8000 }); await message.channel.send(`> 👨‍🚀 ${data.number} : ${data.people.map((p) => p.name).join(", ")}`); } catch { await message.channel.send("❌ Indisponible."); } } };

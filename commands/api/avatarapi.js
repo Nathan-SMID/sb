@@ -1,0 +1,1 @@
+export default { name: "avatarapi", description: "Avatar factice", usage: "avatarapi [seed]", category: "api", cooldown: 2, async execute(client, message, args) { await message.channel.send(`https://api.dicebear.com/7.x/identicon/png?seed=${encodeURIComponent(args[0] || Math.random().toString(36).slice(2))}`); } };

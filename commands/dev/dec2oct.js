@@ -1,0 +1,1 @@
+export default { name: "dec2oct", description: "Décimal vers octal", usage: "dec2oct <n>", category: "dev", cooldown: 1, async execute(client, message, args) { const n = parseInt(args[0], 10); if (isNaN(n)) return message.channel.send("❌ Nombre ?"); await message.channel.send("> " + n.toString(8)); } };

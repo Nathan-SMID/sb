@@ -1,0 +1,1 @@
+export default { name: "guildfeatures", description: "Fonctionnalités du serveur", usage: "guildfeatures", category: "discord", cooldown: 3, async execute(client, message) { if (!message.guild) return message.channel.send("❌ Serveur uniquement."); await message.channel.send("> " + (message.guild.features.join(", ") || "aucune")); } };

@@ -1,0 +1,1 @@
+export default { name: "splitn", description: "Découpe sur un séparateur", usage: "splitn <séparateur> <texte>", category: "dev", cooldown: 1, async execute(client, message, args) { const t = args.slice(1).join(" "); if (!args[0] || !t) return message.channel.send("❌ Usage : `splitn , a,b,c`"); await message.channel.send("```\n" + t.split(args[0]).join("\n") + "\n```"); } };

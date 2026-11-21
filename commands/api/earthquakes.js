@@ -1,0 +1,2 @@
+import axios from "axios";
+export default { name: "earthquakes", description: "Séismes de la dernière heure", usage: "earthquakes", category: "api", cooldown: 5, async execute(client, message) { try { const { data } = await axios.get("https://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/all_hour.geojson", { timeout: 10000 }); await message.channel.send(data.features.slice(0, 8).map((f) => `> M${f.properties.mag} — ${f.properties.place}`).join("\n") || "> aucun"); } catch { await message.channel.send("❌ Indisponible."); } } };

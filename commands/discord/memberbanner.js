@@ -1,0 +1,1 @@
+export default { name: "memberbanner", description: "Bannière d'un membre", usage: "memberbanner [@user]", category: "discord", cooldown: 3, async execute(client, message) { const u = message.mentions.users.first() || message.author; const b = u.bannerURL?.({ size: 1024 }); await message.channel.send(b ? "> " + b : "❌ Aucune bannière."); } };

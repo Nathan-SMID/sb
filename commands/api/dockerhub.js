@@ -1,0 +1,2 @@
+import axios from "axios";
+export default { name: "dockerhub", description: "Infos sur une image Docker", usage: "dockerhub <image>", category: "api", cooldown: 4, async execute(client, message, args) { if (!args[0]) return message.channel.send("❌ Image ?"); try { const { data } = await axios.get(`https://hub.docker.com/v2/repositories/${args[0]}`, { timeout: 8000 }); await message.channel.send(`> **${data.name}** — ⭐ ${data.star_count}\n> pulls : ${data.pull_count}`); } catch { await message.channel.send("❌ Image inconnue."); } } };

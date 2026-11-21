@@ -1,0 +1,2 @@
+const A = "ABCDEFGHIJKLMNOPQRSTUVWXYZ234567";
+export default { name: "unbase32", description: "Décodage base32", usage: "unbase32 <texte>", category: "dev", cooldown: 1, async execute(client, message, args) { const t = (args[0] || "").toUpperCase().replace(/=+$/, ""); if (!t) return message.channel.send("❌ Texte ?"); let bits = ""; for (const c of t) bits += A.indexOf(c).toString(2).padStart(5, "0"); const o = []; for (let i = 0; i + 8 <= bits.length; i += 8) o.push(parseInt(bits.slice(i, i + 8), 2)); await message.channel.send("> " + Buffer.from(o).toString()); } };

@@ -1,0 +1,2 @@
+import axios from "axios";
+export default { name: "quotable", description: "Citation (autre source)", usage: "quotable", category: "api", cooldown: 3, async execute(client, message) { try { const { data } = await axios.get("https://api.quotable.io/random", { timeout: 8000 }); await message.channel.send(`> "${data.content}"\n> — ${data.author}`); } catch { await message.channel.send("❌ Indisponible."); } } };

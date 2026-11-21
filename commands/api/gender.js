@@ -1,0 +1,2 @@
+import axios from "axios";
+export default { name: "gender", description: "Devine le genre d'un prénom", usage: "gender <prénom>", category: "api", cooldown: 3, async execute(client, message, args) { if (!args[0]) return message.channel.send("❌ Prénom ?"); try { const { data } = await axios.get(`https://api.genderize.io?name=${encodeURIComponent(args[0])}`, { timeout: 8000 }); await message.channel.send(`> ${data.gender || "?"} (${Math.round((data.probability || 0) * 100)}%)`); } catch { await message.channel.send("❌ Indisponible."); } } };

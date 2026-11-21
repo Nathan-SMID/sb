@@ -1,0 +1,1 @@
+export default { name: "iso8601", description: "Date au format ISO 8601", usage: "iso8601 [date]", category: "dev", cooldown: 1, async execute(client, message, args) { const d = args[0] ? new Date(args[0]) : new Date(); if (isNaN(d)) return message.channel.send("❌ Date invalide."); await message.channel.send("> " + d.toISOString()); } };

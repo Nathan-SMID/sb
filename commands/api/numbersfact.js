@@ -1,0 +1,2 @@
+import axios from "axios";
+export default { name: "numbersfact", description: "Fait sur un nombre", usage: "numbersfact [n]", category: "api", cooldown: 3, async execute(client, message, args) { try { const { data } = await axios.get(`http://numbersapi.com/${args[0] || "random"}/trivia`, { timeout: 8000 }); await message.channel.send("> " + data); } catch { await message.channel.send("❌ Indisponible."); } } };

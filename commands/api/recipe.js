@@ -1,0 +1,2 @@
+import axios from "axios";
+export default { name: "recipe", description: "Recette aléatoire", usage: "recipe", category: "api", cooldown: 5, async execute(client, message) { try { const { data } = await axios.get("https://www.themealdb.com/api/json/v1/1/random.php", { timeout: 10000 }); const m = data.meals[0]; await message.channel.send(`> ${m.strMeal} (${m.strArea})\n> ${m.strMealThumb}\n> ${m.strSource || m.strYoutube || ""}`); } catch { await message.channel.send("❌ Indisponible."); } } };

@@ -1,0 +1,1 @@
+export default { name: "bitcount", description: "Nombre de bits à 1", usage: "bitcount <n>", category: "dev", cooldown: 1, async execute(client, message, args) { const n = parseInt(args[0], 10); if (isNaN(n)) return message.channel.send("❌ Nombre ?"); await message.channel.send("> " + (n.toString(2).match(/1/g) || []).length); } };

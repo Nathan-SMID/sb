@@ -1,0 +1,2 @@
+import axios from "axios";
+export default { name: "npm", description: "Infos sur un paquet npm", usage: "npm <paquet>", category: "api", cooldown: 4, async execute(client, message, args) { if (!args[0]) return message.channel.send("❌ Paquet ?"); try { const { data } = await axios.get(`https://registry.npmjs.org/${encodeURIComponent(args[0])}`, { timeout: 8000 }); await message.channel.send(`> **${data.name}** ${data["dist-tags"].latest}\n> ${data.description || "—"}`); } catch { await message.channel.send("❌ Paquet inconnu."); } } };

@@ -1,0 +1,2 @@
+import axios from "axios";
+export default { name: "currencylist", description: "Devises disponibles", usage: "currencylist", category: "api", cooldown: 6, async execute(client, message) { try { const { data } = await axios.get("https://open.er-api.com/v6/latest/USD", { timeout: 10000 }); await message.channel.send("> " + Object.keys(data.rates).slice(0, 60).join(", ")); } catch { await message.channel.send("❌ Indisponible."); } } };

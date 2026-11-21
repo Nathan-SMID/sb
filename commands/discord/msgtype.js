@@ -1,0 +1,1 @@
+export default { name: "msgtype", description: "Type du message répondu", usage: "msgtype", category: "discord", cooldown: 2, async execute(client, message) { if (!message.reference?.messageId) return message.channel.send("❌ Réponds à un message."); const m = await message.channel.messages.fetch(message.reference.messageId); await message.channel.send("> " + m.type); } };

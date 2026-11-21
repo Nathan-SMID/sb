@@ -1,0 +1,2 @@
+import axios from "axios";
+export default { name: "worldtime", description: "Heure dans un fuseau", usage: "worldtime <zone>", category: "api", cooldown: 3, async execute(client, message, args) { if (!args[0]) return message.channel.send("❌ Zone (ex : Europe/Paris) ?"); try { const { data } = await axios.get(`https://worldtimeapi.org/api/timezone/${args[0]}`, { timeout: 8000 }); await message.channel.send(`> ${data.datetime.slice(0, 19).replace("T", " ")}\n> ${data.timezone}`); } catch { await message.channel.send("❌ Zone inconnue."); } } };

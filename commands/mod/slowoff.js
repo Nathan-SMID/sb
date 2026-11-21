@@ -1,0 +1,1 @@
+export default { name: "slowoff", description: "Désactive le slowmode", usage: "slowoff", category: "mod", cooldown: 3, async execute(client, message) { await message.channel.setRateLimitPerUser(0).then(() => message.channel.send("> ⏱️ slowmode désactivé")).catch((e) => message.channel.send("❌ " + e.message)); } };

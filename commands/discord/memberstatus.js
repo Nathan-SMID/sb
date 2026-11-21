@@ -1,0 +1,1 @@
+export default { name: "memberstatus", description: "Statut d'un membre", usage: "memberstatus [@user]", category: "discord", cooldown: 2, async execute(client, message) { const m = message.mentions.members.first() || message.member; if (!m) return message.channel.send("❌ Serveur uniquement."); await message.channel.send(`> ${m.presence?.status || "hors ligne"}`); } };

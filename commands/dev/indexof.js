@@ -1,0 +1,1 @@
+export default { name: "indexof", description: "Position d'une sous-chaîne", usage: "indexof <cherche> <texte>", category: "dev", cooldown: 1, async execute(client, message, args) { const t = args.slice(1).join(" "); if (!args[0] || !t) return message.channel.send("❌ Usage : `indexof a texte`"); await message.channel.send(`> ${t.indexOf(args[0])}`); } };

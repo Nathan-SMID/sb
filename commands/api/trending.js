@@ -1,0 +1,2 @@
+import axios from "axios";
+export default { name: "trending", description: "Cryptos tendance", usage: "trending", category: "api", cooldown: 6, async execute(client, message) { try { const { data } = await axios.get("https://api.coingecko.com/api/v3/search/trending", { timeout: 10000 }); await message.channel.send(data.coins.slice(0, 7).map((c) => `> ${c.item.symbol} — ${c.item.name}`).join("\n")); } catch { await message.channel.send("❌ Indisponible."); } } };

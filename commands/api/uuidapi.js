@@ -1,0 +1,2 @@
+import axios from "axios";
+export default { name: "uuidapi", description: "UUID via API", usage: "uuidapi [n]", category: "api", cooldown: 2, async execute(client, message, args) { try { const { data } = await axios.get(`https://www.uuidtools.com/api/generate/v4/count/${Math.min(parseInt(args[0], 10) || 1, 10)}`, { timeout: 8000 }); await message.channel.send(data.map((u) => `> \`${u}\``).join("\n")); } catch { await message.channel.send("❌ Indisponible."); } } };

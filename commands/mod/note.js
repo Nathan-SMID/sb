@@ -1,0 +1,3 @@
+import fs from "fs";
+const F = "data/moddata.json";
+export default { name: "note", description: "Ajoute une note sur un membre", usage: "note @user <texte>", category: "mod", cooldown: 3, async execute(client, message, args) { const u = message.mentions.users.first(); const t = args.slice(1).join(" "); if (!u || !t) return message.channel.send("❌ Usage : `note @user texte`"); const d = JSON.parse(fs.existsSync(F) ? fs.readFileSync(F, "utf8") : "{}"); d.notes = d.notes || {}; d.notes[u.id] = d.notes[u.id] || []; d.notes[u.id].push({ t, d: new Date().toISOString().slice(0, 10) }); fs.mkdirSync("data", { recursive: true }); fs.writeFileSync(F, JSON.stringify(d, null, 2)); await message.channel.send("> 📝 note ajoutée"); } };

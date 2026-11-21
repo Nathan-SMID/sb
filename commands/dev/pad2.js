@@ -1,0 +1,1 @@
+export default { name: "pad2", description: "Complète avec des zéros", usage: "pad2 <n> <longueur>", category: "dev", cooldown: 1, async execute(client, message, args) { const n = args[0] || "", l = Math.min(parseInt(args[1], 10) || 2, 40); await message.channel.send("> `" + n.padStart(l, "0") + "`"); } };

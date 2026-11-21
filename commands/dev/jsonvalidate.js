@@ -1,0 +1,1 @@
+export default { name: "jsonvalidate", description: "Valide un JSON", usage: "jsonvalidate <json>", category: "dev", cooldown: 1, async execute(client, message, args) { try { JSON.parse(args.join(" ")); await message.channel.send("> ✅ JSON valide"); } catch (e) { await message.channel.send("> ❌ " + e.message); } } };

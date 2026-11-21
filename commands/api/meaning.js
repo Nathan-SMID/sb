@@ -1,0 +1,2 @@
+import axios from "axios";
+export default { name: "meaning", description: "Signification d'un prénom", usage: "meaning <prénom>", category: "api", cooldown: 4, async execute(client, message, args) { if (!args[0]) return message.channel.send("❌ Prénom ?"); try { const { data } = await axios.get(`https://api.agify.io?name=${encodeURIComponent(args[0])}`, { timeout: 8000 }); await message.channel.send(`> ${args[0]} : âge moyen ${data.age ?? "?"}`); } catch { await message.channel.send("❌ Indisponible."); } } };

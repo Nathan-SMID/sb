@@ -1,0 +1,1 @@
+export default { name: "guildboost", description: "Niveau et boosts du serveur", usage: "guildboost", category: "discord", cooldown: 3, async execute(client, message) { if (!message.guild) return message.channel.send("❌ Serveur uniquement."); await message.channel.send(`> niveau ${message.guild.premiumTier} · ${message.guild.premiumSubscriptionCount || 0} boosts`); } };

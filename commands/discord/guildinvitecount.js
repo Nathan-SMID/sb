@@ -1,0 +1,1 @@
+export default { name: "guildinvitecount", description: "Nombre d'invitations", usage: "guildinvitecount", category: "discord", cooldown: 4, async execute(client, message) { if (!message.guild) return message.channel.send("❌ Serveur uniquement."); const i = await message.guild.invites.fetch().catch(() => null); await message.channel.send("> " + (i ? i.size : "inconnu")); } };
