@@ -1,0 +1,1 @@
+export default { name: "blockedcount", description: "Nombre de bloqués", usage: "blockedcount", category: "self", cooldown: 2, async execute(client, message) { await message.channel.send("> " + [...client.relationships.cache.values()].filter((r) => r.type === 2).length); } };

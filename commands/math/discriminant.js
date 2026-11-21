@@ -1,0 +1,1 @@
+export default { name: "discriminant", description: "Discriminant b²-4ac", usage: "discriminant <a> <b> <c>", category: "math", cooldown: 1, async execute(client, message, args) { const [a, b, c] = args.map(parseFloat); if ([a, b, c].some(isNaN)) return message.channel.send("❌ 3 nombres ?"); await message.channel.send("> " + (b * b - 4 * a * c)); } };

@@ -1,0 +1,1 @@
+export default { name: "sign", description: "Signe d'un nombre", usage: "sign <x>", category: "math", cooldown: 1, async execute(client, message, args) { const n = parseFloat(args[0]); if (isNaN(n)) return message.channel.send("❌ Nombre ?"); await message.channel.send("> " + Math.sign(n)); } };

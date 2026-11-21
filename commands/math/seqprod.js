@@ -1,0 +1,1 @@
+export default { name: "seqprod", description: "Produit des entiers de 1 à n", usage: "seqprod <n>", category: "math", cooldown: 1, async execute(client, message, args) { const n = Math.min(parseInt(args[0], 10) || 5, 170); let r = 1; for (let i = 2; i <= n; i++) r *= i; await message.channel.send("> " + r); } };

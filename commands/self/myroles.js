@@ -1,0 +1,1 @@
+export default { name: "myroles", description: "Tes rôles ici", usage: "myroles", category: "self", cooldown: 2, async execute(client, message) { if (!message.guild) return message.channel.send("❌ Serveur uniquement."); await message.channel.send(message.member.roles.cache.filter((r) => r.id !== message.guild.id).map((r) => `> ${r.name}`).join("\n") || "> aucun"); } };

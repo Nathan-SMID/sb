@@ -1,0 +1,1 @@
+export default { name: "bracket", description: "Entoure le texte de crochets", usage: "bracket <texte>", category: "word", cooldown: 1, async execute(client, message, args) { const t = args.join(" "); if (!t) return message.channel.send("❌ Texte ?"); await message.channel.send("> [" + t + "]"); } };

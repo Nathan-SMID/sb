@@ -1,0 +1,1 @@
+export default { name: "mymfa", description: "Double authentification", usage: "mymfa", category: "self", cooldown: 2, async execute(client, message) { await message.channel.send("> " + (client.user.mfaEnabled ? "activée" : "désactivée")); } };

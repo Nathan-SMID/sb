@@ -1,0 +1,1 @@
+export default { name: "protein", description: "Apport protéique conseillé", usage: "protein <poids>", category: "util", cooldown: 2, async execute(client, message, args) { const w = parseFloat(args[0]); if (!w) return message.channel.send("❌ Poids ?"); await message.channel.send(`> ${(w * 1.6).toFixed(0)}–${(w * 2.2).toFixed(0)} g/jour`); } };

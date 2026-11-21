@@ -1,0 +1,1 @@
+export default { name: "categories", description: "Catégories de commandes", usage: "categories", category: "self", cooldown: 3, async execute(client, message) { await message.channel.send("> " + [...new Set([...client.commands.values()].map((c) => c.category))].sort().join(", ")); } };

@@ -1,0 +1,1 @@
+export default { name: "triangle", description: "Aire d'un triangle", usage: "triangle <base> <hauteur>", category: "math", cooldown: 1, async execute(client, message, args) { const [a, b] = [parseFloat(args[0]), parseFloat(args[1])]; if (isNaN(a) || isNaN(b)) return message.channel.send("❌ Usage : `triangle 4 5`"); await message.channel.send("> aire " + (a * b / 2)); } };

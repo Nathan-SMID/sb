@@ -1,0 +1,1 @@
+export default { name: "isogram", description: "Teste un isogramme", usage: "isogram <mot>", category: "word", cooldown: 1, async execute(client, message, args) { const t = args.join("").toLowerCase().replace(/[^a-z]/g, ""); if (!t) return message.channel.send("❌ Mot ?"); await message.channel.send("> " + (new Set(t).size === t.length ? "✅ isogramme" : "❌ non")); } };

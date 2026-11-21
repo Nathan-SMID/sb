@@ -1,0 +1,1 @@
+export default { name: "trimlines", description: "Supprime les espaces en bord de ligne", usage: "trimlines <texte>", category: "word", cooldown: 1, async execute(client, message, args) { const t = args.join(" "); if (!t) return message.channel.send("❌ Texte ?"); await message.channel.send("```\n" + t.split("\n").map((l) => l.trim()).join("\n") + "\n```"); } };

@@ -1,0 +1,2 @@
+import { wait } from "../../utils/functions.js";
+export default { name: "pomodoro", description: "Session de concentration de 25 min", usage: "pomodoro", category: "util", cooldown: 5, async execute(client, message) { await message.channel.send("> 🍅 25 minutes de concentration, c'est parti."); await wait(1500000); await message.channel.send(`> 🍅 Terminé — ${message.author}, pause de 5 minutes.`); } };

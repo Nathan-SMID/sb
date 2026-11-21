@@ -1,0 +1,1 @@
+export default { name: "myaccount", description: "Infos sur ton compte", usage: "myaccount", category: "self", cooldown: 2, async execute(client, message) { const u = client.user; await message.channel.send(`> ${u.tag}\n> id : \`${u.id}\`\n> créé : ${u.createdAt.toUTCString()}\n> vérifié : ${u.verified}`); } };

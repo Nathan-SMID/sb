@@ -1,0 +1,1 @@
+export default { name: "extractdiscord", description: "Extrait les IDs Discord mentionnés", usage: "extractdiscord <texte>", category: "word", cooldown: 1, async execute(client, message, args) { const m = args.join(" ").match(/\d{17,20}/g); await message.channel.send("> " + (m ? [...new Set(m)].join(", ") : "aucun")); } };

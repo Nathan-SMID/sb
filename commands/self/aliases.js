@@ -1,0 +1,1 @@
+export default { name: "aliases", description: "Cherche les alias d'une commande", usage: "aliases <nom>", category: "self", cooldown: 2, async execute(client, message, args) { const c = client.commands.get(args[0]); if (!c) return message.channel.send("❌ Commande inconnue."); await message.channel.send("> " + ((c.aliases || []).join(", ") || "aucun alias")); } };

@@ -1,0 +1,1 @@
+export default { name: "mydms", description: "Tes salons privés ouverts", usage: "mydms", category: "self", cooldown: 4, async execute(client, message) { const c = [...client.channels.cache.values()].filter((x) => x.type === "DM"); await message.channel.send("```\n" + c.slice(0, 30).map((x) => `${x.recipient?.tag || "?"} ${x.id}`).join("\n").slice(0, 1800) + "\n```"); } };

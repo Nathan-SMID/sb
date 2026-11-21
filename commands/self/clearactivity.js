@@ -1,0 +1,1 @@
+export default { name: "clearactivity", description: "Retire ton activité", usage: "clearactivity", category: "self", cooldown: 3, async execute(client, message) { client.user.setPresence({ activities: [] }); await message.channel.send("> activité retirée"); } };

@@ -1,0 +1,1 @@
+export default { name: "stopwatch", description: "Chronomètre", usage: "stopwatch", category: "util", cooldown: 2, async execute(client, message) { const s = Date.now(); const m = await message.channel.send("> ⏱️ 0.0 s"); const i = setInterval(() => m.edit(`> ⏱️ ${((Date.now() - s) / 1000).toFixed(1)} s`).catch(() => {}), 1000); setTimeout(() => clearInterval(i), 60000); } };

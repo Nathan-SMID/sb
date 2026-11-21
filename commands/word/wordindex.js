@@ -1,0 +1,1 @@
+export default { name: "wordindex", description: "Numérote les mots", usage: "wordindex <texte>", category: "word", cooldown: 1, async execute(client, message, args) { const w = args.join(" ").split(/\s+/).filter(Boolean); if (!w.length) return message.channel.send("❌ Texte ?"); await message.channel.send("> " + w.map((x, i) => `${i + 1}:${x}`).join(" ").slice(0, 1900)); } };

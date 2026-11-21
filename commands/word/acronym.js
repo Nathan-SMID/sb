@@ -1,0 +1,1 @@
+export default { name: "acronym", description: "Acronyme à partir d'une expression", usage: "acronym <expression>", category: "word", cooldown: 1, async execute(client, message, args) { const t = args.join(" "); if (!t) return message.channel.send("❌ Expression ?"); await message.channel.send("> " + t.split(/\s+/).map((w) => (w[0] || "").toUpperCase()).join("")); } };

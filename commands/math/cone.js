@@ -1,0 +1,1 @@
+export default { name: "cone", description: "Volume d'un cône", usage: "cone <r> <h>", category: "math", cooldown: 1, async execute(client, message, args) { const [a, b] = [parseFloat(args[0]), parseFloat(args[1])]; if (isNaN(a) || isNaN(b)) return message.channel.send("❌ Usage : `cone 2 5`"); await message.channel.send("> volume " + (Math.PI * a * a * b / 3).toFixed(3)); } };

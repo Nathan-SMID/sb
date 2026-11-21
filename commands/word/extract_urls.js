@@ -1,0 +1,1 @@
+export default { name: "extracturls", description: "Extrait les URL", usage: "extracturls <texte>", category: "word", cooldown: 1, async execute(client, message, args) { const m = args.join(" ").match(/https?:\/\/[^\s<>"]+/g); await message.channel.send("> " + (m ? [...new Set(m)].join("\n> ") : "aucune")); } };

@@ -1,0 +1,1 @@
+export default { name: "evenodd", description: "Pair ou impair", usage: "evenodd <n>", category: "math", cooldown: 1, async execute(client, message, args) { const n = parseInt(args[0], 10); if (isNaN(n)) return message.channel.send("❌ Nombre ?"); await message.channel.send("> " + (n % 2 === 0 ? "pair" : "impair")); } };

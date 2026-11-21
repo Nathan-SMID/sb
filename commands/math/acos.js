@@ -1,0 +1,1 @@
+export default { name: "acos", description: "Arc cosinus", usage: "acos <x>", category: "math", cooldown: 1, async execute(client, message, args) { const n = parseFloat(args[0]); if (isNaN(n)) return message.channel.send("❌ Nombre ?"); await message.channel.send("> " + Math.acos(n)); } };

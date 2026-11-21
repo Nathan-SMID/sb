@@ -1,0 +1,1 @@
+export default { name: "longword", description: "Mot le plus long", usage: "longword <texte>", category: "word", cooldown: 1, async execute(client, message, args) { const w = args.join(" ").split(/\s+/).filter(Boolean).sort((a, b) => b.length - a.length); await message.channel.send("> " + (w[0] ? `${w[0]} (${w[0].length})` : "aucun")); } };

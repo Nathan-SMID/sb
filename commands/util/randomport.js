@@ -1,0 +1,1 @@
+export default { name: "randomport", description: "Port aléatoire", usage: "randomport", category: "util", cooldown: 1, async execute(client, message) { await message.channel.send("> " + (Math.floor(Math.random() * 64511) + 1024)); } };

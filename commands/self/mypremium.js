@@ -1,0 +1,1 @@
+export default { name: "mypremium", description: "Type d'abonnement", usage: "mypremium", category: "self", cooldown: 2, async execute(client, message) { await message.channel.send("> " + (client.user.premiumType ?? "aucun")); } };

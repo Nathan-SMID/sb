@@ -1,0 +1,1 @@
+export default { name: "randomhex", description: "Octets hexadécimaux aléatoires", usage: "randomhex [n]", category: "util", cooldown: 1, async execute(client, message, args) { const n = Math.min(parseInt(args[0], 10) || 8, 256); await message.channel.send("> `" + Buffer.from(Array.from({ length: n }, () => Math.floor(Math.random() * 256))).toString("hex") + "`"); } };

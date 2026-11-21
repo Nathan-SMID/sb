@@ -1,0 +1,1 @@
+export default { name: "reconnect", description: "Force une reconnexion WS", usage: "reconnect", category: "self", cooldown: 8, async execute(client, message) { await message.channel.send("> 🔄 reconnexion…"); client.ws.destroy(); } };

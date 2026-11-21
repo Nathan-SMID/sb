@@ -1,0 +1,2 @@
+import { parseTime, wait } from "../../utils/functions.js";
+export default { name: "snooze", description: "Rappel de sieste", usage: "snooze [durée]", category: "util", cooldown: 3, async execute(client, message, args) { const ms = parseTime(args[0] || "20m"); if (!ms) return message.channel.send("❌ Durée invalide."); await message.channel.send(`> 😴 sieste de ${args[0] || "20m"} notée.`); await wait(ms); await message.channel.send(`> ⏰ Debout ${message.author}.`); } };

@@ -1,0 +1,1 @@
+export default { name: "longnames", description: "Commandes au nom le plus long", usage: "longnames", category: "self", cooldown: 3, async execute(client, message) { const l = [...client.commands.values()].sort((a, b) => b.name.length - a.name.length).slice(0, 15); await message.channel.send(l.map((c) => `> ${c.name} (${c.name.length})`).join("\n")); } };

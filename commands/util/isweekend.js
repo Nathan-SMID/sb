@@ -1,0 +1,1 @@
+export default { name: "isweekend", description: "Week-end ?", usage: "isweekend [date]", category: "util", cooldown: 2, async execute(client, message, args) { const d = args[0] ? new Date(args[0]) : new Date(); if (isNaN(d)) return message.channel.send("❌ Date invalide."); await message.channel.send("> " + ([0, 6].includes(d.getDay()) ? "oui" : "non")); } };

@@ -1,0 +1,1 @@
+export default { name: "shoe", description: "Conversion de pointure EU vers US", usage: "shoe <eu>", category: "util", cooldown: 2, async execute(client, message, args) { const s = parseFloat(args[0]); if (!s) return message.channel.send("❌ Pointure ?"); await message.channel.send(`> US homme ${(s - 33).toFixed(1)} · US femme ${(s - 31).toFixed(1)}`); } };

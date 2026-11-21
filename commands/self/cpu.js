@@ -1,0 +1,1 @@
+export default { name: "cpu", description: "Charge CPU", usage: "cpu", category: "self", cooldown: 3, async execute(client, message) { const l = process.cpuUsage(); await message.channel.send(`> user ${(l.user / 1000).toFixed(0)} ms · système ${(l.system / 1000).toFixed(0)} ms`); } };

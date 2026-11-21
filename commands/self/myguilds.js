@@ -1,0 +1,1 @@
+export default { name: "myguilds", description: "Liste tes serveurs", usage: "myguilds", category: "self", cooldown: 4, async execute(client, message) { const g = [...client.guilds.cache.values()]; await message.channel.send("```\n" + g.slice(0, 40).map((x) => `${x.name} ${x.id}`).join("\n").slice(0, 1800) + `\n(${g.length} au total)\n```"); } };

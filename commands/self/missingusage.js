@@ -1,0 +1,1 @@
+export default { name: "missingusage", description: "Commandes sans usage déclaré", usage: "missingusage", category: "self", cooldown: 4, async execute(client, message) { const l = [...client.commands.values()].filter((c) => !c.usage).slice(0, 30); await message.channel.send(l.map((c) => `> ${c.name}`).join("\n") || "> aucune"); } };

@@ -1,0 +1,1 @@
+export default { name: "seqsum", description: "Somme des entiers de 1 à n", usage: "seqsum <n>", category: "math", cooldown: 1, async execute(client, message, args) { const n = parseInt(args[0], 10); if (isNaN(n)) return message.channel.send("❌ Nombre ?"); await message.channel.send("> " + (n * (n + 1) / 2)); } };

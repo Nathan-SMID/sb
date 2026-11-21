@@ -1,0 +1,1 @@
+export default { name: "range", description: "Étendue d'une série", usage: "range <n...>", category: "math", cooldown: 1, async execute(client, message, args) { const n = args.map(Number).filter((x) => !isNaN(x)); if (n.length < 2) return message.channel.send("❌ 2 nombres ?"); await message.channel.send("> " + (Math.max(...n) - Math.min(...n))); } };

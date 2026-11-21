@@ -1,0 +1,2 @@
+const W = ["nuage", "forêt", "silex", "orage", "lanterne", "rivière", "vertige", "horizon", "cristal", "sable"];
+export default { name: "randomword", description: "Mot aléatoire", usage: "randomword [n]", category: "util", cooldown: 1, async execute(client, message, args) { const n = Math.min(parseInt(args[0], 10) || 1, 15); await message.channel.send("> " + Array.from({ length: n }, () => W[Math.floor(Math.random() * W.length)]).join(" ")); } };

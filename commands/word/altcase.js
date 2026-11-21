@@ -1,0 +1,1 @@
+export default { name: "altcase", description: "Majuscule/minuscule alternées", usage: "altcase <texte>", category: "word", cooldown: 1, async execute(client, message, args) { const t = args.join(" "); if (!t) return message.channel.send("❌ Texte ?"); await message.channel.send("> " + [...t].map((c, i) => (i % 2 ? c.toLowerCase() : c.toUpperCase())).join("").slice(0, 1900)); } };

@@ -1,0 +1,1 @@
+export default { name: "weekofmonth", description: "Semaine du mois", usage: "weekofmonth [date]", category: "util", cooldown: 2, async execute(client, message, args) { const d = args[0] ? new Date(args[0]) : new Date(); if (isNaN(d)) return message.channel.send("❌ Date invalide."); await message.channel.send(`> semaine ${Math.ceil(d.getDate() / 7)}`); } };

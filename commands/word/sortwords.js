@@ -1,0 +1,1 @@
+export default { name: "sortwords", description: "Trie les mots", usage: "sortwords <texte>", category: "word", cooldown: 1, async execute(client, message, args) { const w = args.join(" ").split(/\s+/).filter(Boolean); if (!w.length) return message.channel.send("❌ Texte ?"); await message.channel.send("> " + w.sort((a, b) => a.localeCompare(b)).join(" ").slice(0, 1900)); } };

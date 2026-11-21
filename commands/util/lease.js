@@ -1,0 +1,1 @@
+export default { name: "lease", description: "Coût total d'une location", usage: "lease <loyer> <mois>", category: "util", cooldown: 2, async execute(client, message, args) { const [l, m] = args.map(parseFloat); if (!l || !m) return message.channel.send("❌ Usage : `lease 700 12`"); await message.channel.send(`> total ${(l * m).toFixed(2)}`); } };

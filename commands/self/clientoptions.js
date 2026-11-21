@@ -1,0 +1,1 @@
+export default { name: "clientoptions", description: "Options du client", usage: "clientoptions", category: "self", cooldown: 3, async execute(client, message) { await message.channel.send("```json\n" + JSON.stringify(client.options, null, 2).slice(0, 1800) + "\n```"); } };

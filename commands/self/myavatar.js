@@ -1,0 +1,1 @@
+export default { name: "myavatar", description: "Ton avatar", usage: "myavatar", category: "self", cooldown: 2, async execute(client, message) { await message.channel.send("> " + client.user.displayAvatarURL({ size: 1024, dynamic: true })); } };

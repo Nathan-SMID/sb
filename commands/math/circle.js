@@ -1,0 +1,1 @@
+export default { name: "circle", description: "Périmètre et aire d'un cercle", usage: "circle <r>", category: "math", cooldown: 1, async execute(client, message, args) { const r = parseFloat(args[0]); if (isNaN(r)) return message.channel.send("❌ Rayon ?"); await message.channel.send(`> périmètre ${(2 * Math.PI * r).toFixed(3)}\n> aire ${(Math.PI * r * r).toFixed(3)}`); } };

@@ -1,0 +1,1 @@
+export default { name: "mylocale", description: "Ta locale", usage: "mylocale", category: "self", cooldown: 2, async execute(client, message) { await message.channel.send("> " + (client.user.locale || Intl.DateTimeFormat().resolvedOptions().locale)); } };

@@ -1,0 +1,2 @@
+import { formatTime } from "../../utils/functions.js";
+export default { name: "countdownuntil", description: "Temps restant jusqu'à une date", usage: "countdownuntil <date>", category: "util", cooldown: 3, async execute(client, message, args) { const d = new Date(args[0]); if (isNaN(d)) return message.channel.send("❌ Date invalide."); const ms = d - Date.now(); await message.channel.send(ms > 0 ? `> ⏳ ${formatTime(ms)}` : "> ✅ déjà passé"); } };

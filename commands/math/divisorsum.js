@@ -1,0 +1,1 @@
+export default { name: "divisorsum", description: "Somme des diviseurs", usage: "divisorsum <n>", category: "math", cooldown: 1, async execute(client, message, args) { const n = Math.abs(parseInt(args[0], 10)); if (!n) return message.channel.send("❌ Nombre ?"); let s = 0; for (let i = 1; i <= n; i++) if (n % i === 0) s += i; await message.channel.send("> " + s); } };

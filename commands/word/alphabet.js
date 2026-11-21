@@ -1,0 +1,1 @@
+export default { name: "alphabet", description: "Trie les lettres", usage: "alphabet <texte>", category: "word", cooldown: 1, async execute(client, message, args) { const t = args.join("").replace(/\s/g, ""); if (!t) return message.channel.send("❌ Texte ?"); await message.channel.send("> " + [...t].sort().join("")); } };

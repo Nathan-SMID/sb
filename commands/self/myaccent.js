@@ -1,0 +1,1 @@
+export default { name: "myaccent", description: "Ta couleur d'accent", usage: "myaccent", category: "self", cooldown: 2, async execute(client, message) { await message.channel.send("> " + (client.user.hexAccentColor || "aucune")); } };

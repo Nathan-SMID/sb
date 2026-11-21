@@ -1,0 +1,1 @@
+export default { name: "cwd", description: "Dossier de travail", usage: "cwd", category: "self", cooldown: 2, async execute(client, message) { await message.channel.send("> `" + process.cwd() + "`"); } };

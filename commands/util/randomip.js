@@ -1,0 +1,1 @@
+export default { name: "randomip", description: "Adresse IP aléatoire", usage: "randomip", category: "util", cooldown: 1, async execute(client, message) { await message.channel.send("> " + [0, 0, 0, 0].map(() => Math.floor(Math.random() * 254) + 1).join(".")); } };

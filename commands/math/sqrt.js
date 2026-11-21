@@ -1,0 +1,1 @@
+export default { name: "sqrt", description: "Racine carrée", usage: "sqrt <x>", category: "math", cooldown: 1, async execute(client, message, args) { const n = parseFloat(args[0]); if (isNaN(n)) return message.channel.send("❌ Nombre ?"); await message.channel.send("> " + Math.sqrt(n)); } };

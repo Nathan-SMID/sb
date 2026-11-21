@@ -1,0 +1,1 @@
+export default { name: "shortword", description: "Mot le plus court", usage: "shortword <texte>", category: "word", cooldown: 1, async execute(client, message, args) { const w = args.join(" ").split(/\s+/).filter(Boolean).sort((a, b) => a.length - b.length); await message.channel.send("> " + (w[0] ? `${w[0]} (${w[0].length})` : "aucun")); } };

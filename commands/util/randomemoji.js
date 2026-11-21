@@ -1,0 +1,2 @@
+const E = ["🎲", "🔥", "🌊", "🌙", "⚡", "🍀", "🎯", "🧊", "🌵", "🪐"];
+export default { name: "randomemoji", description: "Emoji aléatoire", usage: "randomemoji [n]", category: "util", cooldown: 1, async execute(client, message, args) { const n = Math.min(parseInt(args[0], 10) || 1, 20); await message.channel.send("> " + Array.from({ length: n }, () => E[Math.floor(Math.random() * E.length)]).join(" ")); } };

@@ -1,0 +1,1 @@
+export default { name: "hypot", description: "Hypoténuse", usage: "hypot <a> <b>", category: "math", cooldown: 1, async execute(client, message, args) { const [a, b] = [parseFloat(args[0]), parseFloat(args[1])]; if (isNaN(a) || isNaN(b)) return message.channel.send("❌ Usage : `hypot 3 4`"); await message.channel.send("> " + Math.hypot(a, b)); } };

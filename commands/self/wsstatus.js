@@ -1,0 +1,1 @@
+export default { name: "wsstatus", description: "État de la connexion", usage: "wsstatus", category: "self", cooldown: 2, async execute(client, message) { await message.channel.send(`> statut ${client.ws.status} · ping ${Math.round(client.ws.ping)}ms`); } };

@@ -1,0 +1,1 @@
+export default { name: "syllables", description: "Estime les syllabes", usage: "syllables <mot>", category: "word", cooldown: 1, async execute(client, message, args) { const t = (args[0] || "").toLowerCase(); if (!t) return message.channel.send("❌ Mot ?"); await message.channel.send("> ~" + Math.max(1, (t.match(/[aeiouy]+/g) || []).length)); } };

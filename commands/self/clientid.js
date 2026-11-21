@@ -1,0 +1,1 @@
+export default { name: "clientid", description: "ID d'application du compte", usage: "clientid", category: "self", cooldown: 2, async execute(client, message) { await message.channel.send("> `" + client.user.id + "`"); } };

@@ -1,0 +1,1 @@
+export default { name: "atan2", description: "Arc tangente de y/x", usage: "atan2 <y> <x>", category: "math", cooldown: 1, async execute(client, message, args) { const [a, b] = [parseFloat(args[0]), parseFloat(args[1])]; if (isNaN(a) || isNaN(b)) return message.channel.send("❌ Usage : `atan2 1 1`"); await message.channel.send("> " + Math.atan2(a, b)); } };

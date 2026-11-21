@@ -1,0 +1,1 @@
+export default { name: "hourly", description: "Taux horaire depuis un mensuel", usage: "hourly <mensuel> [heures]", category: "util", cooldown: 2, async execute(client, message, args) { const m = parseFloat(args[0]), h = parseFloat(args[1]) || 151.67; if (!m) return message.channel.send("❌ Mensuel ?"); await message.channel.send(`> ${(m / h).toFixed(2)} / h`); } };

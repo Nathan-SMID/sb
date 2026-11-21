@@ -1,0 +1,1 @@
+export default { name: "waterintake", description: "Hydratation conseillée", usage: "waterintake <poids>", category: "util", cooldown: 2, async execute(client, message, args) { const w = parseFloat(args[0]); if (!w) return message.channel.send("❌ Poids ?"); await message.channel.send(`> ${(w * 0.033).toFixed(2)} L/jour`); } };

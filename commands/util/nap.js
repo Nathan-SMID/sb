@@ -1,0 +1,1 @@
+export default { name: "nap", description: "Durées de sieste optimales", usage: "nap", category: "util", cooldown: 2, async execute(client, message) { const n = Date.now(); await message.channel.send("> " + [10, 20, 90].map((m) => `${m} min → ${new Date(n + m * 60000).toTimeString().slice(0, 5)}`).join("\n> ")); } };

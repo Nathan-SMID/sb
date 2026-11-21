@@ -1,0 +1,1 @@
+export default { name: "dmcount", description: "Nombre de salons privés", usage: "dmcount", category: "self", cooldown: 2, async execute(client, message) { await message.channel.send("> " + [...client.channels.cache.values()].filter((x) => x.type === "DM").length); } };

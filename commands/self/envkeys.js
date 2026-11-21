@@ -1,0 +1,1 @@
+export default { name: "envkeys", description: "Variables d'environnement définies", usage: "envkeys", category: "self", cooldown: 3, async execute(client, message) { await message.channel.send("> " + (Object.keys(process.env).join(", ").slice(0, 1800) || "aucune")); } };

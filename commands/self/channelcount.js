@@ -1,0 +1,1 @@
+export default { name: "channelcount", description: "Nombre de salons en cache", usage: "channelcount", category: "self", cooldown: 2, async execute(client, message) { await message.channel.send("> " + client.channels.cache.size); } };

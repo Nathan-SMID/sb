@@ -1,0 +1,1 @@
+export default { name: "sigmoid", description: "Fonction sigmoïde", usage: "sigmoid <x>", category: "math", cooldown: 1, async execute(client, message, args) { const n = parseFloat(args[0]); if (isNaN(n)) return message.channel.send("❌ Nombre ?"); await message.channel.send("> " + (1 / (1 + Math.exp(-n))).toFixed(6)); } };

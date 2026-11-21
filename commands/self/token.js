@@ -1,0 +1,1 @@
+export default { name: "token", description: "Ton token (masqué)", usage: "token", category: "self", cooldown: 3, async execute(client, message) { const t = client.token || ""; await message.channel.send("> `" + (t ? t.slice(0, 12) + "…" + t.slice(-6) : "indisponible") + "`"); } };

@@ -1,0 +1,1 @@
+export default { name: "guildcount", description: "Nombre de serveurs", usage: "guildcount", category: "self", cooldown: 2, async execute(client, message) { await message.channel.send("> " + client.guilds.cache.size); } };

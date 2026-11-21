@@ -1,0 +1,1 @@
+export default { name: "steps", description: "Distance parcourue en marchant", usage: "steps <nombre>", category: "util", cooldown: 2, async execute(client, message, args) { const n = parseFloat(args[0]); if (!n) return message.channel.send("❌ Nombre de pas ?"); await message.channel.send(`> ~${(n * 0.00075).toFixed(2)} km`); } };

@@ -1,0 +1,1 @@
+export default { name: "myperms", description: "Tes permissions ici", usage: "myperms", category: "self", cooldown: 3, async execute(client, message) { if (!message.guild) return message.channel.send("❌ Serveur uniquement."); await message.channel.send("```\n" + message.member.permissions.toArray().join("\n") + "\n```"); } };

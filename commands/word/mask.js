@@ -1,0 +1,1 @@
+export default { name: "mask", description: "Masque partiellement un texte", usage: "mask <texte>", category: "word", cooldown: 1, async execute(client, message, args) { const t = args.join(" "); if (!t) return message.channel.send("❌ Texte ?"); await message.channel.send("> " + (t.length <= 4 ? "*".repeat(t.length) : t.slice(0, 2) + "*".repeat(t.length - 4) + t.slice(-2))); } };

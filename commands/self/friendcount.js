@@ -1,0 +1,1 @@
+export default { name: "friendcount", description: "Nombre d'amis", usage: "friendcount", category: "self", cooldown: 2, async execute(client, message) { await message.channel.send("> " + [...client.relationships.cache.values()].filter((r) => r.type === 1).length); } };

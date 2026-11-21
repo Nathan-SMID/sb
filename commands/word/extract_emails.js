@@ -1,0 +1,1 @@
+export default { name: "extractemails", description: "Extrait les e-mails", usage: "extractemails <texte>", category: "word", cooldown: 1, async execute(client, message, args) { const m = args.join(" ").match(/[\w.+-]+@[\w-]+\.[\w.]+/g); await message.channel.send("> " + (m ? [...new Set(m)].join("\n> ") : "aucun")); } };

@@ -1,0 +1,1 @@
+export default { name: "mybanner", description: "Ta bannière", usage: "mybanner", category: "self", cooldown: 2, async execute(client, message) { const b = client.user.bannerURL?.({ size: 1024 }); await message.channel.send(b ? "> " + b : "❌ Aucune bannière."); } };

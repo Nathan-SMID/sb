@@ -1,0 +1,1 @@
+export default { name: "screen", description: "Pouces vers centimètres (diagonale)", usage: "screen <pouces>", category: "util", cooldown: 2, async execute(client, message, args) { const p = parseFloat(args[0]); if (!p) return message.channel.send("❌ Pouces ?"); await message.channel.send(`> ${(p * 2.54).toFixed(2)} cm`); } };

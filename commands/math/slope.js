@@ -1,0 +1,1 @@
+export default { name: "slope", description: "Pente entre deux points", usage: "slope <x1> <y1> <x2> <y2>", category: "math", cooldown: 1, async execute(client, message, args) { const n = args.map(parseFloat); if (n.length < 4 || n.some(isNaN)) return message.channel.send("❌ 4 nombres ?"); await message.channel.send("> " + ((n[3] - n[1]) / (n[2] - n[0]))); } };

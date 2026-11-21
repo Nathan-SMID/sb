@@ -1,0 +1,1 @@
+export default { name: "extractnumbers", description: "Extrait les nombres", usage: "extractnumbers <texte>", category: "word", cooldown: 1, async execute(client, message, args) { const m = args.join(" ").match(/-?\d+(?:\.\d+)?/g); await message.channel.send("> " + (m ? m.join(", ") : "aucun")); } };

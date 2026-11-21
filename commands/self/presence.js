@@ -1,0 +1,1 @@
+export default { name: "presence", description: "Ta présence actuelle", usage: "presence", category: "self", cooldown: 2, async execute(client, message) { const p = client.user.presence; await message.channel.send(`> statut ${p?.status || "?"}\n> activités ${p?.activities?.map((a) => a.name).join(", ") || "aucune"}`); } };

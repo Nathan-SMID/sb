@@ -1,0 +1,2 @@
+import axios from "axios";
+export default { name: "setavatar", description: "Change ton avatar depuis une URL", usage: "setavatar <url>", category: "self", cooldown: 8, async execute(client, message, args) { if (!args[0]) return message.channel.send("❌ URL ?"); try { const { data } = await axios.get(args[0], { responseType: "arraybuffer", timeout: 15000 }); await client.user.setAvatar(Buffer.from(data)); await message.channel.send("> 🖼️ avatar mis à jour"); } catch (e) { await message.channel.send("❌ " + e.message); } } };

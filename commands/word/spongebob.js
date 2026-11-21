@@ -1,0 +1,1 @@
+export default { name: "spongebob", description: "Casse moqueuse", usage: "spongebob <texte>", category: "word", cooldown: 1, async execute(client, message, args) { const t = args.join(" "); if (!t) return message.channel.send("❌ Texte ?"); await message.channel.send("> " + [...t].map((c) => (Math.random() > 0.5 ? c.toUpperCase() : c.toLowerCase())).join("").slice(0, 1900)); } };

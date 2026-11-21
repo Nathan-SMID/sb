@@ -1,0 +1,1 @@
+export default { name: "mycreated", description: "Date de création de ton compte", usage: "mycreated", category: "self", cooldown: 2, async execute(client, message) { await message.channel.send("> " + client.user.createdAt.toUTCString()); } };

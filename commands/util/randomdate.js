@@ -1,0 +1,1 @@
+export default { name: "randomdate", description: "Date aléatoire", usage: "randomdate", category: "util", cooldown: 1, async execute(client, message) { await message.channel.send("> " + new Date(Date.now() - Math.random() * 3.15e12).toISOString().slice(0, 10)); } };

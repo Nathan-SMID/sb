@@ -1,0 +1,2 @@
+import { parseTime } from "../../utils/functions.js";
+export default { name: "deadline", description: "Échéance depuis maintenant", usage: "deadline <durée> <tâche>", category: "util", cooldown: 3, async execute(client, message, args) { const ms = parseTime(args[0] || ""); if (!ms) return message.channel.send("❌ Usage : `deadline 2h rapport`"); await message.channel.send(`> 📅 échéance : ${new Date(Date.now() + ms).toUTCString()}\n> tâche : ${args.slice(1).join(" ") || "—"}`); } };

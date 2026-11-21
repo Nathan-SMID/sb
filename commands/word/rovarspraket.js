@@ -1,0 +1,1 @@
+export default { name: "rovarspraket", description: "Langage des voleurs", usage: "rovarspraket <texte>", category: "word", cooldown: 1, async execute(client, message, args) { const t = args.join(" "); if (!t) return message.channel.send("❌ Texte ?"); await message.channel.send("> " + t.replace(/[bcdfghjklmnpqrstvwxz]/gi, (c) => c + "o" + c.toLowerCase()).slice(0, 1900)); } };

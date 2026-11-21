@@ -1,0 +1,1 @@
+export default { name: "memory", description: "Mémoire utilisée", usage: "memory", category: "self", cooldown: 3, async execute(client, message) { const m = process.memoryUsage(); await message.channel.send(`> rss ${(m.rss / 1048576).toFixed(1)} Mo\n> heap ${(m.heapUsed / 1048576).toFixed(1)} Mo\n> externe ${(m.external / 1048576).toFixed(1)} Mo`); } };
