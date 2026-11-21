@@ -1,0 +1,2 @@
+export default { name: "atbash", aliases: ["ab"], description: "Chiffre Atbash", usage: "atbash <texte>", category: "text", cooldown: 1,
+  async execute(client, message, args) { const t = args.join(" "); if (!t) return message.channel.send("❌ Texte ?"); await message.channel.send(t.replace(/[a-z]/gi, (c) => { const b = c <= "Z" ? 65 : 97; return String.fromCharCode(b + 25 - (c.charCodeAt(0) - b)); }).slice(0, 1900)); } };

@@ -1,0 +1,2 @@
+export default { name: "shufflelines", aliases: ["shl"], description: "Mélange les lignes", usage: "shufflelines <lignes>", category: "text", cooldown: 1,
+  async execute(client, message, args) { const t = args.join(" "); if (!t) return message.channel.send("❌ Texte ?"); const l = t.split("\n"); for (let i = l.length - 1; i > 0; i--) { const j = Math.floor(Math.random() * (i + 1)); [l[i], l[j]] = [l[j], l[i]]; } await message.channel.send(l.join("\n").slice(0, 1900)); } };

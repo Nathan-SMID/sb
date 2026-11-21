@@ -1,0 +1,2 @@
+export default { name: "count", aliases: ["wc"], description: "Compte caractères, mots et lignes", usage: "count <texte>", category: "text", cooldown: 1,
+  async execute(client, message, args) { const t = args.join(" "); if (!t) return message.channel.send("❌ Texte ?"); await message.channel.send(`> caractères : ${t.length}\n> mots : ${t.split(/\s+/).filter(Boolean).length}\n> lignes : ${t.split("\n").length}`); } };

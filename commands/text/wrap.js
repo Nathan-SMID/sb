@@ -1,0 +1,2 @@
+export default { name: "wrap", aliases: ["wrapn"], description: "Coupe le texte tous les N caractères", usage: "wrap <n> <texte>", category: "text", cooldown: 1,
+  async execute(client, message, args) { const n = parseInt(args[0], 10); const t = args.slice(1).join(" "); if (!n || !t) return message.channel.send("❌ Usage : `wrap 40 texte`"); await message.channel.send(t.replace(new RegExp(`(.{1,${n}})(\\s|$)`, "g"), "$1\n").slice(0, 1900)); } };

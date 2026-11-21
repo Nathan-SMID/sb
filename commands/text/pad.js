@@ -1,0 +1,2 @@
+export default { name: "pad", aliases: ["padend"], description: "Complète un texte à N caractères", usage: "pad <n> <texte>", category: "text", cooldown: 1,
+  async execute(client, message, args) { const n = Math.min(parseInt(args[0], 10) || 20, 1900); const t = args.slice(1).join(" "); if (!t) return message.channel.send("❌ Usage : `pad 20 texte`"); await message.channel.send(`\`${t.padEnd(n, "·")}\``); } };

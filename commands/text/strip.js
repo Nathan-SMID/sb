@@ -1,0 +1,2 @@
+export default { name: "strip", aliases: ["noemoji"], description: "Retire les emojis", usage: "strip <texte>", category: "text", cooldown: 1,
+  async execute(client, message, args) { const t = args.join(" "); if (!t) return message.channel.send("❌ Texte ?"); await message.channel.send(t.replace(/[\u{1F300}-\u{1FAFF}\u{2600}-\u{27BF}\u{FE0F}\u{200D}]/gu, "").replace(/\s+/g, " ").trim().slice(0, 1900)); } };

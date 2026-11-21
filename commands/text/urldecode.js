@@ -1,0 +1,2 @@
+export default { name: "urldecode", aliases: ["ud"], description: "Décode une URL", usage: "urldecode <texte>", category: "text", cooldown: 1,
+  async execute(client, message, args) { const t = args.join(" "); if (!t) return message.channel.send("❌ Texte ?"); try { await message.channel.send(decodeURIComponent(t).slice(0, 1900)); } catch { await message.channel.send("❌ Encodage invalide."); } } };

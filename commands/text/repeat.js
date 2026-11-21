@@ -1,0 +1,2 @@
+export default { name: "repeat", aliases: ["rep"], description: "Répète un texte", usage: "repeat <n> <texte>", category: "text", cooldown: 1,
+  async execute(client, message, args) { const n = Math.min(parseInt(args[0], 10) || 1, 50); const t = args.slice(1).join(" "); if (!t) return message.channel.send("❌ Usage : `repeat 3 texte`"); await message.channel.send(Array(n).fill(t).join("\n").slice(0, 1900)); } };

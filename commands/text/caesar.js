@@ -1,0 +1,2 @@
+export default { name: "caesar", aliases: ["shift"], description: "Chiffre de César", usage: "caesar <n> <texte>", category: "text", cooldown: 1,
+  async execute(client, message, args) { const n = parseInt(args[0], 10); const t = args.slice(1).join(" "); if (isNaN(n) || !t) return message.channel.send("❌ Usage : `caesar 3 texte`"); await message.channel.send(t.replace(/[a-z]/gi, (c) => { const b = c <= "Z" ? 65 : 97; return String.fromCharCode((((c.charCodeAt(0) - b + n) % 26) + 26) % 26 + b); }).slice(0, 1900)); } };

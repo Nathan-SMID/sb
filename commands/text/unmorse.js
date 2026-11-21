@@ -1,0 +1,3 @@
+const M = { ".-": "a", "-...": "b", "-.-.": "c", "-..": "d", ".": "e", "..-.": "f", "--.": "g", "....": "h", "..": "i", ".---": "j", "-.-": "k", ".-..": "l", "--": "m", "-.": "n", "---": "o", ".--.": "p", "--.-": "q", ".-.": "r", "...": "s", "-": "t", "..-": "u", "...-": "v", ".--": "w", "-..-": "x", "-.--": "y", "--..": "z", "/": " " };
+export default { name: "unmorse", aliases: ["frommorse"], description: "Décode le morse", usage: "unmorse <morse>", category: "text", cooldown: 1,
+  async execute(client, message, args) { const t = args.join(" "); if (!t) return message.channel.send("❌ Morse ?"); await message.channel.send(t.split(" ").map((c) => M[c] || "?").join("").slice(0, 1900)); } };

@@ -1,0 +1,2 @@
+export default { name: "slug", aliases: ["slugify"], description: "Slug d'URL", usage: "slug <texte>", category: "text", cooldown: 1,
+  async execute(client, message, args) { const t = args.join(" "); if (!t) return message.channel.send("❌ Texte ?"); const s = t.normalize("NFD").replace(/[\u0300-\u036f]/g, "").toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, ""); await message.channel.send(s.slice(0, 1900)); } };

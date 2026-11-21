@@ -1,0 +1,2 @@
+export default { name: "chunk", aliases: ["split"], description: "Découpe en blocs de N caractères", usage: "chunk <n> <texte>", category: "text", cooldown: 1,
+  async execute(client, message, args) { const n = Math.min(parseInt(args[0], 10) || 20, 1900); const t = args.slice(1).join(" "); if (!t) return message.channel.send("❌ Usage : `chunk 20 texte`"); await message.channel.send(t.match(new RegExp(`.{1,${n}}`, "g")).join("\n").slice(0, 1900)); } };
